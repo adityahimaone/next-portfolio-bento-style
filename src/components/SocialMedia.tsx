@@ -15,30 +15,35 @@ const SocialMedia = (props: Props) => {
       link: "https://github.com",
       text: "Github",
       color: "gray-900",
+      borderColor: "border-gray-900",
     },
     {
       icon: <Linkedin size={16} className="text-blue-800" />,
       link: "https://linkedin.com",
       text: "Linkedin",
       color: "blue-800",
+      borderColor: "border-blue-800",
     },
     {
       icon: <FaXTwitter size={16} className="text-gray-950" />,
       link: "https://twitter.com",
       text: "Twitter / X",
       color: "gray-950",
+      borderColor: "border-gray-950",
     },
     {
       icon: <Instagram size={16} className="text-pink-600" />,
       link: "https://instagram.com",
       text: "Instagram",
       color: "pink-600",
+      borderColor: "border-pink-600",
     },
     {
       icon: <IconBrandBehance size={16} className="text-blue-500" />,
       link: "https://behance.com",
       text: "Behance",
       color: "blue-500",
+      borderColor: "border-blue-500",
     },
   ];
   return (
@@ -50,12 +55,12 @@ const SocialMedia = (props: Props) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 + i * 0.2 }}
+            onLoadStart={() => console.log("load")}
           >
             <Button
               className={cn(
-                "w-full border bg-white hover:bg-transparent hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition-all duration-200",
-                `border-${item.color}`,
-                `hover:shadow-${item.color}`
+                "w-full border bg-white hover:bg-transparent hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition-all",
+                item.borderColor
               )}
             >
               <a
