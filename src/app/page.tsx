@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import BentoGrid from "@/components/BentoGrid";
 import BentoGridItem from "@/components/BentoGridItem";
 import { IconTableColumn } from "@tabler/icons-react";
-import { arrayMove } from "react-sortable-hoc";
 import { IListItem } from "@/lib/types";
 import ItemTwo from "@/components/ItemTwo";
 import About from "@/components/About";
