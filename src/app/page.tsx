@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import BentoGrid from "@/components/BentoGrid";
 import BentoGridItem from "@/components/BentoGridItem";
 import { IconTableColumn } from "@tabler/icons-react";
-import { arrayMove } from "react-sortable-hoc";
 import { IListItem } from "@/lib/types";
 import ItemTwo from "@/components/ItemTwo";
 import About from "@/components/About";
@@ -19,16 +18,6 @@ import { options } from "@/lib/data";
 const Page = () => {
   const [items, setItems] = useState<IListItem[]>(initialItem); // Replace with your actual items
   const [selected, setSelected] = useState<string>("all");
-
-  const onSortEnd = ({
-    oldIndex,
-    newIndex,
-  }: {
-    oldIndex: number;
-    newIndex: number;
-  }) => {
-    setItems(arrayMove(items, oldIndex, newIndex));
-  };
 
   const onSortAll = () => {
     setSelected("all");
@@ -92,13 +81,9 @@ const Page = () => {
         />
         {/* @ts-ignore */}
         <BentoGrid
-          onSortEnd={onSortEnd}
-          axis="xy"
-          helperClass="sortableHelper"
-          pressDelay={200}
-          // pressThreshold={500}
+          list={items}
+          setList={setItems}
           className="max-w-4xl mx-auto md:auto-rows-[20rem]"
-          lockToContainerEdges={true}
         >
           {items.map((item, index) => (
             // @ts-ignore
