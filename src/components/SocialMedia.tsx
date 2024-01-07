@@ -1,51 +1,62 @@
-import React from "react";
-import { Button } from "./ui/button";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { FaXTwitter } from "react-icons/fa6";
-import { IconBrandBehance } from "@tabler/icons-react";
-import { Github, Instagram, Linkedin } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
+import { IListSocialMedia } from "@/lib/types";
 
-type Props = {};
+const socialMediaList: IListSocialMedia[] = [
+  {
+    icon: <Github className="text-white" />,
+    link: "https://github.com",
+    text: "Github",
+    color: "black dark:text-white",
+    borderColor: "border-black dark:border-white",
+    shadow: "shadow-black",
+  },
+  {
+    icon: <Linkedin />,
+    link: "https://linkedin.com",
+    text: "Linkedin",
+    color: "pallet-blue-4",
+    borderColor: "border-pallet-blue-3",
+    shadow: "shadow-blue-700",
+  },
+  {
+    icon: <FaXTwitter />,
+    link: "https://twitter.com",
+    text: "Twitter / X",
+    color: "pallet-blue-1",
+    borderColor: "border-pallet-blue-1",
+    shadow: "shadow-blue-500",
+  },
+  {
+    icon: <Instagram />,
+    link: "https://instagram.com",
+    text: "Instagram",
+    color: "pallet-pink-2",
+    borderColor: "border-pallet-pink-2",
+    shadow: "shadow-pink-500",
+  },
+  {
+    icon: <Mail />,
+    link: "https://mail.com",
+    text: "Email",
+    color: "pallet-purple-1",
+    borderColor: "border-pallet-purple-1",
+    shadow: "shadow-purple-500",
+  },
+];
 
-const SocialMedia = (props: Props) => {
-  const listItem = [
-    {
-      icon: <Github size={16} className="text-gray-900" />,
-      link: "https://github.com",
-      text: "Github",
-      color: "gray-900",
-      borderColor: "border-gray-900",
-    },
-    {
-      icon: <Linkedin size={16} className="text-blue-800" />,
-      link: "https://linkedin.com",
-      text: "Linkedin",
-      color: "blue-800",
-      borderColor: "border-blue-800",
-    },
-    {
-      icon: <FaXTwitter size={16} className="text-gray-950" />,
-      link: "https://twitter.com",
-      text: "Twitter / X",
-      color: "gray-950",
-      borderColor: "border-gray-950",
-    },
-    {
-      icon: <Instagram size={16} className="text-pink-600" />,
-      link: "https://instagram.com",
-      text: "Instagram",
-      color: "pink-600",
-      borderColor: "border-pink-600",
-    },
-    {
-      icon: <IconBrandBehance size={16} className="text-blue-500" />,
-      link: "https://behance.com",
-      text: "Behance",
-      color: "blue-500",
-      borderColor: "border-blue-500",
-    },
-  ];
+const SocialMedia = () => {
+  const [listItem, setListItem] = useState<IListSocialMedia[]>(socialMediaList);
+
+  useEffect(() => {
+    setListItem(socialMediaList);
+  }, []);
+
   return (
     <div className="flex items-center h-full w-full">
       <ul className="space-y-3 w-full">
@@ -57,9 +68,10 @@ const SocialMedia = (props: Props) => {
             transition={{ delay: 0.5 + i * 0.2 }}
             onLoadStart={() => console.log("load")}
           >
-            <Button
+            <button
+              type="button"
               className={cn(
-                "w-full border bg-white hover:bg-transparent hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition-all",
+                "w-full px-2 py-1.5 border rounded-md bg-white dark:bg-card hover:bg-transparent hover:shadow-gray-800 dark:hover:shadow-accent dark:hover:bg-accent hover:shadow-[4px_4px_0px_0px] dark:hover:shadow-[4px_4px_0px_0px] transition-all cursor-pointer",
                 item.borderColor
               )}
             >
@@ -67,14 +79,24 @@ const SocialMedia = (props: Props) => {
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-start w-full"
+                className="flex items-center justify-start w-full cursor-pointer"
               >
-                {item.icon}
+                <div
+                  className={cn(
+                    "p-2 rounded-[10px] flex justify-center items-center text-white w-8 h-8",
+                    `bg-${item.color}`,
+                    {
+                      "bg-black": i === 0,
+                    }
+                  )}
+                >
+                  {item.icon}
+                </div>
                 <span className={cn("ml-2", `text-${item.color}`)}>
                   {item.text}
                 </span>
               </a>
-            </Button>
+            </button>
           </motion.li>
         ))}
       </ul>

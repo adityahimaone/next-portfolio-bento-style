@@ -1,46 +1,50 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import BentoGrid from "@/components/BentoGrid";
 import BentoGridItem from "@/components/BentoGridItem";
-import {
-  IconClipboardCopy,
-  IconFileBroken,
-  IconSignature,
-  IconTableColumn,
-} from "@tabler/icons-react";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { IconTableColumn } from "@tabler/icons-react";
+import { arrayMove } from "react-sortable-hoc";
+import { IListItem } from "@/lib/types";
 import ItemTwo from "@/components/ItemTwo";
 import About from "@/components/About";
 import SocialMedia from "@/components/SocialMedia";
-import { arrayMove, SortableHandle } from "react-sortable-hoc";
-import Navbar from "@/components/Navbar";
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import Experience from "@/components/Experience";
+import MenuNavigation from "@/components/MenuNavigation";
+import Footer from "@/components/Footer";
+import TechStack from "@/components/TechStack";
+import SkeletonMask from "@/components/SkeletonMask";
+import { options } from "@/lib/data";
 
-type Props = {};
+const Page = () => {
+  const [items, setItems] = useState<IListItem[]>(initialItem); // Replace with your actual items
+  const [selected, setSelected] = useState<string>("all");
 
-const Page = (props: Props) => {
-  const [items, setItems] = useState(initialItem); // Replace with your actual items
-  const onSortEnd = ({ oldIndex, newIndex }: any) => {
+  const onSortEnd = ({
+    oldIndex,
+    newIndex,
+  }: {
+    oldIndex: number;
+    newIndex: number;
+  }) => {
     setItems(arrayMove(items, oldIndex, newIndex));
   };
 
   const onSortAll = () => {
+    setSelected("all");
     setItems(initialItem);
   };
 
   const onSortAbout = () => {
+    setSelected("about");
     const first = [
       { ...initialItem[0], active: true },
       { ...initialItem[2], active: true },
       { ...initialItem[3], active: true },
-      { ...initialItem[6], active: true },
+      { ...initialItem[4], active: true },
     ];
     const rest = [
-      { ...initialItem[4], active: false },
+      { ...initialItem[6], active: false },
       { ...initialItem[5], active: false },
       { ...initialItem[7], active: false },
       { ...initialItem[8], active: false },
@@ -49,48 +53,57 @@ const Page = (props: Props) => {
     setItems([...first, ...rest]);
   };
 
-  // sort the first is index 5, 6, 8 ,9 and rest is 0,1,2,3,4,7
   const onSortProject = () => {
-    const first = initialItem.slice(4, 9).map((item, index) => {
-      if (index === 2) {
-        return { ...item, active: false };
-      }
-      return { ...item, active: true };
-    });
-    const rest = initialItem
-      .slice(0, 4)
-      .map((item) => ({ ...item, active: false }));
+    setSelected("projects");
+    const first = [
+      { ...initialItem[5], active: true },
+      { ...initialItem[6], active: true },
+      { ...initialItem[7], active: true },
+      { ...initialItem[8], active: true },
+    ];
+    const rest = [
+      { ...initialItem[0], active: false },
+      { ...initialItem[1], active: false },
+      { ...initialItem[2], active: false },
+      { ...initialItem[4], active: false },
+      { ...initialItem[3], active: false },
+    ];
     setItems([...first, ...rest]);
+  };
+
+  const handleChange = (status: string) => {
+    setSelected(status);
+    if (status === "all") {
+      onSortAll();
+    } else if (status === "projects") {
+      onSortProject();
+    } else {
+      onSortAbout();
+    }
   };
 
   return (
     <>
-      {/* Add button sort  */}
-      <main className="bg-gray-100 py-3 px-6 sm:px-3 md:px-0 ">
-        <MaxWidthWrapper className="py-2">
-          <div className="flex space-x-4">
-            <div className="flex justify-start">
-              <Button onClick={onSortAll}>All</Button>
-            </div>
-            <div className="flex justify-start">
-              <Button onClick={onSortProject}>Projects</Button>
-            </div>
-            <div className="flex justify-start">
-              <Button onClick={onSortAbout}>About</Button>
-            </div>
-          </div>
-        </MaxWidthWrapper>
-        {/* $ts-expect-error */}
+      <main className="py-3 px-6 sm:px-3 md:px-0">
+        <MenuNavigation
+          selected={selected}
+          options={options}
+          handleChange={handleChange}
+        />
+        {/* @ts-ignore */}
         <BentoGrid
           onSortEnd={onSortEnd}
           axis="xy"
           helperClass="sortableHelper"
-          distance={1}
+          pressDelay={200}
+          // pressThreshold={500}
           className="max-w-4xl mx-auto md:auto-rows-[20rem]"
+          lockToContainerEdges={true}
         >
           {items.map((item, index) => (
+            // @ts-ignore
             <BentoGridItem
-              key={`item-${index}`}
+              key={`item-${index}-${item.title}`}
               index={index}
               value={item}
               title={item.title}
@@ -102,17 +115,14 @@ const Page = (props: Props) => {
           ))}
         </BentoGrid>
       </main>
+      <Footer />
     </>
   );
 };
 
 export default Page;
 
-const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-300 dark:bg-black"></div>
-);
-
-const initialItem = [
+const initialItem: IListItem[] = [
   {
     header: <About />,
     className: "md:col-span-2 px-7 py-8",
@@ -129,19 +139,21 @@ const initialItem = [
     active: true,
   },
   {
-    title: "The Power of Communication",
-    description:
-      "Understand the impact of effective communication in our lives.",
-    header: <Skeleton />,
-    className: "md:col-span-2 p-4",
+    header: <TechStack />,
+    className: "md:col-span-2 px-7 py-8",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+    active: true,
+  },
+  {
+    header: <Experience />,
+    className: "md:col-span-1 md:row-span-2 p-4",
     active: true,
   },
   {
     title: "Project 1",
     description:
       "Understand the impact of effective communication in our lives.",
-    header: <Skeleton />,
+    header: <SkeletonMask />,
     className: "md:col-span-1 p-4",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
     active: true,
@@ -150,25 +162,17 @@ const initialItem = [
     title: "Project 2",
     description:
       "Understand the impact of effective communication in our lives.",
-    header: <Skeleton />,
+    header: <SkeletonMask />,
     className: "md:col-span-1 p-4",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
     active: true,
   },
-  {
-    title: "Timeline Experience",
-    description:
-      "Understand the impact of effective communication in our lives.",
-    header: <Skeleton />,
-    className: "md:col-span-1 md:row-span-2 p-4",
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-    active: true,
-  },
+
   {
     title: "Project 3",
     description:
       "Understand the impact of effective communication in our lives.",
-    header: <Skeleton />,
+    header: <SkeletonMask />,
     className: "md:col-span-1 p-4",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
     active: true,
@@ -177,7 +181,7 @@ const initialItem = [
     title: "Project 4",
     description:
       "Understand the impact of effective communication in our lives.",
-    header: <Skeleton />,
+    header: <SkeletonMask />,
     className: "md:col-span-1 p-4",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
     active: true,

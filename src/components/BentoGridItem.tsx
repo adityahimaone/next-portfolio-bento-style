@@ -1,8 +1,8 @@
 "use client";
 
+import { IBentoGridItem } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { SortableElement } from "react-sortable-hoc";
 
 const BentoGridItem = SortableElement(
@@ -16,18 +16,7 @@ const BentoGridItem = SortableElement(
     value,
     index,
     active,
-  }: {
-    className?: string;
-    title?: string | React.ReactNode;
-    description?: string | React.ReactNode;
-    header?: React.ReactNode;
-    icon?: React.ReactNode;
-    idx: number;
-    value: any; // Replace any with the actual type of your value
-    index: number;
-    active?: boolean;
-  }) => {
-    console.log(active, "active");
+  }: IBentoGridItem) => {
     return (
       <motion.div
         {...value}
@@ -35,7 +24,7 @@ const BentoGridItem = SortableElement(
         initial={{ opacity: 0 }}
         animate={active ? { opacity: 1 } : { opacity: 0.3 }}
         className={cn(
-          "row-span-1 rounded-[32px] group/bento hover:shadow-xl transition-all ease-in-out duration-200 shadow-input dark:shadow-none dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4",
+          "row-span-1 rounded-[32px] overflow-hidden group/bento hover:shadow-xl transition-all ease-in-out duration-200 shadow-input dark:shadow-none dark:bg-card dark:border-white/[0.5] bg-white border border-transparent justify-between flex flex-col space-y-4 cursor-grab",
           className
         )}
       >
