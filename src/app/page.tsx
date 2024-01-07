@@ -19,16 +19,6 @@ const Page = () => {
   const [items, setItems] = useState<IListItem[]>(initialItem); // Replace with your actual items
   const [selected, setSelected] = useState<string>("all");
 
-  const onSortEnd = ({
-    oldIndex,
-    newIndex,
-  }: {
-    oldIndex: number;
-    newIndex: number;
-  }) => {
-    setItems(arrayMove(items, oldIndex, newIndex));
-  };
-
   const onSortAll = () => {
     setSelected("all");
     setItems(initialItem);
