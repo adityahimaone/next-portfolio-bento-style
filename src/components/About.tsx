@@ -23,11 +23,29 @@ const About = () => {
 
   return (
     <div className="flex flex-1 flex-col gap-y-3">
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between overflow-hidden">
         <motion.div animate={controls} aria-hidden="true">
           <Image src={memoji} alt="memoji" width={150} height={150} />
         </motion.div>
         <motion.button
+          onTouchStart={() => {
+            controls.start(hoverAnimation);
+            controlsIcon.start({
+              scale: 1,
+              display: "block",
+              transition: { duration: 0.5 },
+            });
+            setMemoji("/memoji-3.png");
+          }}
+          onTouchEnd={() => {
+            controls.start(unhoverAnimation);
+            controlsIcon.start({
+              scale: 0,
+              display: "none",
+              transition: { duration: 0.5 },
+            });
+            setMemoji("/memoji-2.png");
+          }}
           onHoverStart={() => {
             controls.start(hoverAnimation);
             controlsIcon.start({
@@ -47,11 +65,13 @@ const About = () => {
             setMemoji("/memoji-2.png");
           }}
           type="button"
-          className="relative cursor-pointer inline-flex h-8 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+          className="relative group cursor-pointer inline-flex h-8 overflow-hidden rounded-full border border-slate-200 px-[2px] py-1.5 focus:outline-none"
         >
-          <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#3F37C9,#7209B7,#B5179E)]" />
           <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white dark:bg-slate-950 px-3 py-1 text-sm text-gray-900 dark:text-white backdrop-blur-3xl">
-            Resume
+            Resume{" "}
+            <span className="ml-1 group-hover:hidden group-hover:transition-all">
+              &rarr;
+            </span>
             <motion.span initial={{ display: "none" }} animate={controlsIcon}>
               <IconCloudDownload
                 className="ml-2 font-semibold"

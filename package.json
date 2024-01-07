@@ -25,7 +25,8 @@
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
-    "react-sortable-hoc": "^2.0.0",
+    "react-sortablejs": "^6.1.4",
+    "sortablejs": "^1.15.1",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -34,6 +35,7 @@
     "@types/react": "^18",
     "@types/react-beautiful-dnd": "^13.1.8",
     "@types/react-dom": "^18",
+    "@types/sortablejs": "^1.15.7",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",

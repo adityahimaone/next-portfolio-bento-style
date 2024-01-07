@@ -91,7 +91,7 @@ const TechStack = () => {
 
   return (
     <div className="flex flex-col sm:flex-row h-full">
-      <div className="grid grid-cols-4 sm:grid-cols-3 sm:grid-rows-3 gap-2 flex-1">
+      <div className="grid grid-cols-3 sm:grid-rows-3 gap-2 flex-1">
         {isMounted &&
           techStackData.map((item, i) => (
             <div

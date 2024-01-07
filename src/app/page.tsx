@@ -92,13 +92,9 @@ const Page = () => {
         />
         {/* @ts-ignore */}
         <BentoGrid
-          onSortEnd={onSortEnd}
-          axis="xy"
-          helperClass="sortableHelper"
-          pressDelay={200}
-          // pressThreshold={500}
+          list={items}
+          setList={setItems}
           className="max-w-4xl mx-auto md:auto-rows-[20rem]"
-          lockToContainerEdges={true}
         >
           {items.map((item, index) => (
             // @ts-ignore

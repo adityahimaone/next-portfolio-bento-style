@@ -87,3 +87,14 @@
 #option2:checked ~ div {
   --tw-translate-x: 200%;
 }
+
+.drag-ghost {
+  @apply opacity-30 bg-slate-100 dark:border-none dark:bg-slate-100;
+  div {
+    @apply opacity-0;
+  }
+}
+
+.drag-chosen {
+  @apply shadow-none shadow-transparent opacity-50;
+}
