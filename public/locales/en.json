@@ -6,5 +6,49 @@
     "intro": "I'm",
     "name": "adit",
     "description": "a dedicated Frontend Developer with a journey spanning two vibrant years in the dynamic realm of web development."
+  },
+  "navigation": {
+    "all": "all",
+    "about": "about",
+    "projects": "projects"
+  },
+  "experience": [
+    {
+      "desc": "Tasked with the development and upkeep of Human Resources Information System (HRIS) and attendance applications, including improvement key features, redesign, troubleshooting and resolving bugs. Additionally, responsible for enhancing the features of Key Performance Index (KPI) automation applications (Last Stack Using JQuery & PHP)",
+      "time": "Oct 2022 - Present"
+    },
+    {
+      "desc": "Responsible for maintaining and enhancing the functionality of the existing website, crafting a compelling company profile, and developing an e-commerce platform. As a frontend developer, the role involves ensuring the smooth operation of the current website, optimizing its performance, and implementing updates. (Last Stack Using ReactJS & NextJS)",
+      "time": "Jun 2022 - Aug 2022"
+    },
+    {
+      "desc": "Exploring frontend development with a stack comprising NodeJS, EJS, ReactJS, and NextJS. The focus is on a capstone project, a frontend application for car booking. The aim is to gain hands-on experience in building a user-friendly car booking interface while mastering the intricacies of these frontend technologies.",
+      "time": "Feb 2022 - Jul 2022"
+    },
+    {
+      "desc": "Built a capstone project, the Calories Tracker & Hospital Management System, with a Golang backend serving as a RESTful API and a ReactJS frontend. The backend, powered by Golang, ensures efficiency, while the ReactJS frontend provides a user-friendly interface for tracking calories and managing hospital-related information.",
+      "time": "Aug 2021 - Jan 2022"
+    },
+    {
+      "desc": "I collaborated with a team to create a capstone project, an intuitive machine learning application capable of accurately calculating the calories in food photos. Serving as an API integrated with Firebase and deployed on Google Cloud with Cloud Balancing, our project seamlessly combines machine learning prowess with efficient cloud-based solutions.",
+      "time": "Feb 2021 - Jul 2021"
+    }
+  ],
+  "projects": [
+    {
+      "description": "Landing page for SeaPhantom, an NFT project focusing on innovative and sustainable technologies. Explore the world of NFTs and peer-to-peer trading on the SeaPhantom platform."
+    },
+    {
+      "description": "Engage in NFT trading with the P2P Rum Token Escrow Trading project. This platform facilitates secure and transparent NFT transactions."
+    },
+    {
+      "description": "Explore the Labgrownbeasts Company Profile, showcasing innovation and excellence in the field. Learn about our vision, mission, and the cutting-edge work we do."
+    },
+    {
+      "description": "Application for tracking and counting daily calorie intake, including meal plans. Integrates with Open API for comprehensive nutritional insights."
+    }
+  ],
+  "footer": {
+    "versionOne": "Version One"
   }
 }

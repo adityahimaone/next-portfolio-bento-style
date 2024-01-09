@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import TechStack from "@/components/TechStack";
 import SkeletonMask from "@/components/SkeletonMask";
 import { options, projectsData } from "@/lib/data";
+import { useTranslations } from "next-intl";
 
 interface Props {
   params: {
@@ -22,7 +23,70 @@ interface Props {
 }
 
 const Page = ({ params: { locale } }: Props) => {
-  console.log(locale, "locale");
+  const t = useTranslations("projects");
+
+  const initialItem: IListItem[] = [
+    {
+      header: <About />,
+      className: "md:col-span-2 px-7 py-8",
+      active: true,
+    },
+    {
+      header: <ItemTwo />,
+      className: "md:col-span-1",
+      active: true,
+    },
+    {
+      header: <SocialMedia />,
+      className: "md:col-span-1 px-7 py-8",
+      active: true,
+    },
+    {
+      header: <TechStack />,
+      className: "md:col-span-2 px-7 py-8",
+      icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+      active: true,
+    },
+    {
+      header: <Experience />,
+      className: "md:col-span-1 md:row-span-2 p-4",
+      active: true,
+    },
+    {
+      title: projectsData[0].title,
+      description: t(`${[0]}.description`),
+      header: <SkeletonMask image={projectsData[0].image} />,
+      className: "md:col-span-1 p-4",
+      icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+      active: true,
+    },
+    {
+      title: projectsData[1].title,
+      description: t(`${[1]}.description`),
+      header: <SkeletonMask image={projectsData[1].image} />,
+      className: "md:col-span-1 p-4",
+      icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+      active: true,
+    },
+
+    {
+      title: projectsData[2].title,
+      description: t(`${[2]}.description`),
+      header: <SkeletonMask image={projectsData[2].image} />,
+      className: "md:col-span-1 p-4",
+      icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+      active: true,
+    },
+    {
+      title: projectsData[3].title,
+      description: t(`${[3]}.description`),
+      header: <SkeletonMask image={projectsData[3].image} />,
+      className: "md:col-span-1 p-4",
+      icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+      active: true,
+    },
+  ];
+
   const [items, setItems] = useState<IListItem[]>(initialItem); // Replace with your actual items
   const [selected, setSelected] = useState<string>("all");
 
@@ -110,65 +174,3 @@ const Page = ({ params: { locale } }: Props) => {
 };
 
 export default Page;
-
-const initialItem: IListItem[] = [
-  {
-    header: <About />,
-    className: "md:col-span-2 px-7 py-8",
-    active: true,
-  },
-  {
-    header: <ItemTwo />,
-    className: "md:col-span-1",
-    active: true,
-  },
-  {
-    header: <SocialMedia />,
-    className: "md:col-span-1 px-7 py-8",
-    active: true,
-  },
-  {
-    header: <TechStack />,
-    className: "md:col-span-2 px-7 py-8",
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-    active: true,
-  },
-  {
-    header: <Experience />,
-    className: "md:col-span-1 md:row-span-2 p-4",
-    active: true,
-  },
-  {
-    title: projectsData[0].title,
-    description: projectsData[0].description,
-    header: <SkeletonMask image={projectsData[0].image} />,
-    className: "md:col-span-1 p-4",
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-    active: true,
-  },
-  {
-    title: projectsData[1].title,
-    description: projectsData[1].description,
-    header: <SkeletonMask image={projectsData[1].image} />,
-    className: "md:col-span-1 p-4",
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-    active: true,
-  },
-
-  {
-    title: projectsData[2].title,
-    description: projectsData[2].description,
-    header: <SkeletonMask image={projectsData[2].image} />,
-    className: "md:col-span-1 p-4",
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-    active: true,
-  },
-  {
-    title: projectsData[3].title,
-    description: projectsData[3].description,
-    header: <SkeletonMask image={projectsData[3].image} />,
-    className: "md:col-span-1 p-4",
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-    active: true,
-  },
-];
