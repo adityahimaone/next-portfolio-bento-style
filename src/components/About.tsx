@@ -27,7 +27,11 @@ const About = () => {
         <motion.div animate={controls} aria-hidden="true">
           <Image src={memoji} alt="memoji" width={150} height={150} />
         </motion.div>
-        <motion.button
+        <motion.a
+          target={"_blank"}
+          href={
+            "https://drive.google.com/file/d/17ia4yvdvcrp0m76Vu6EbP-p6gCJKx7nJ/view?usp=sharing"
+          }
           onTouchStart={() => {
             controls.start(hoverAnimation);
             controlsIcon.start({
@@ -64,10 +68,9 @@ const About = () => {
             });
             setMemoji("/memoji-2.png");
           }}
-          type="button"
-          className="relative group cursor-pointer inline-flex h-8 overflow-hidden rounded-full border border-slate-200 px-[2px] py-1.5 focus:outline-none"
+          className="relative inline-flex h-8 cursor-pointer overflow-hidden rounded-full border border-slate-200 group px-[2px] py-1.5 focus:outline-none"
         >
-          <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white dark:bg-slate-950 px-3 py-1 text-sm text-gray-900 dark:text-white backdrop-blur-3xl">
+          <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white px-3 py-1 text-sm text-gray-900 backdrop-blur-3xl dark:bg-slate-950 dark:text-white">
             Resume{" "}
             <span className="ml-1 group-hover:hidden group-hover:transition-all">
               &rarr;
@@ -80,10 +83,10 @@ const About = () => {
               />
             </motion.span>
           </span>
-        </motion.button>
+        </motion.a>
       </div>
-      <h1 className="leading-relaxed text-base">
-        I&apos;m <span className="font-bold text-2xl font-mochi">adit</span>, a
+      <h1 className="text-base leading-relaxed">
+        I&apos;m <span className="text-2xl font-bold font-mochi">adit</span>, a
         dedicated Frontend Developer with a journey spanning two vibrant years
         in the dynamic realm of web development.
       </h1>

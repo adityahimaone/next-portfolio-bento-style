@@ -12,6 +12,20 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "adit",
   description: "adit's personal website",
+  icons: {
+    icon: [
+      {
+        media: "(prefers-color-scheme: light)",
+        url: "/memoji-2.png",
+        href: "/memoji-2.png",
+      },
+      {
+        media: "(prefers-color-scheme: dark)",
+        url: "/memoji-1.png",
+        href: "/memoji-1.png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
