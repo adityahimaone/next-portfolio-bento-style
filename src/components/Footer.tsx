@@ -1,7 +1,9 @@
 import React from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("footer");
   const getYear = () => {
     return new Date().getFullYear();
   };
@@ -24,7 +26,7 @@ const Footer = () => {
               target="_blank"
               className="text-gray-500 transition-all hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
             >
-              Version One
+              {t("versionOne")}
             </a>
           </div>
         </div>

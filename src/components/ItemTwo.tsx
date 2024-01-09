@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
+import LangToggle from "./LangToggle";
 
 const SkeletonThree = () => {
   const variants = {
@@ -30,8 +31,9 @@ const SkeletonThree = () => {
       }}
     >
       <motion.div className="h-full w-full rounded-[32px]">
-        <div className="flex h-full items-center justify-center">
+        <div className="flex flex-col py-6 sm:py-0 gap-y-3 h-full items-center justify-center">
           <ThemeToggle />
+          <LangToggle />
         </div>
       </motion.div>
     </motion.div>

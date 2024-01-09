@@ -1,6 +1,7 @@
 import React from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface Props {
   selected: string;
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const MenuNavigation = ({ selected, options, handleChange }: Props) => {
+  const t = useTranslations("navigation");
   return (
     <MaxWidthWrapper className="flex flex-col items-center py-6 sm:flex-row">
       <div className="relative">
@@ -19,7 +21,8 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
       <div className="mx-auto flex w-fit flex-wrap gap-2 rounded-full bg-slate-200 p-1.5 dark:bg-card dark:border-white/[0.2] dark:border">
         {options.map((option) => (
           <Chip
-            text={option}
+            text={t(option)}
+            option={option}
             selected={selected === option}
             setSelected={handleChange}
             key={option}
@@ -32,16 +35,18 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
 
 const Chip = ({
   text,
+  option,
   selected,
   setSelected,
 }: {
   text: string;
+  option: string;
   selected: boolean;
   setSelected: (status: string) => void;
 }) => {
   return (
     <button
-      onClick={() => setSelected(text)}
+      onClick={() => setSelected(option)}
       className={`${
         selected
           ? "text-gray-900"

@@ -1,0 +1,54 @@
+{
+  "common": {
+    "language": "indonesia"
+  },
+  "about": {
+    "intro": "Saya",
+    "name": "adit",
+    "description": "seorang Pengembang Frontend yang berdedikasi dengan perjalanan selama dua tahun yang dinamis di ranah pengembangan web."
+  },
+  "navigation": {
+    "all": "semua",
+    "about": "tentang",
+    "projects": "proyek"
+  },
+  "experience": [
+    {
+      "desc": "Ditugaskan untuk pengembangan dan pemeliharaan Sistem Informasi Sumber Daya Manusia (HRIS) dan aplikasi absensi, termasuk perbaikan fitur utama, redesain, pemecahan masalah, dan penyelesaian bug. Selain itu, bertanggung jawab untuk meningkatkan fitur aplikasi otomatisasi Indeks Kinerja Kunci (KPI) (Tumpukan terakhir menggunakan JQuery & PHP)",
+      "time": "Okt 2022 - Sekarang"
+    },
+    {
+      "desc": "Bertanggung jawab untuk memelihara dan meningkatkan fungsionalitas situs web yang ada, membuat profil perusahaan yang menarik, dan mengembangkan platform e-commerce. Sebagai pengembang frontend, peran ini melibatkan memastikan operasi lancar situs web saat ini, mengoptimalkan kinerjanya, dan mengimplementasikan pembaruan. (Tumpukan terakhir menggunakan ReactJS & NextJS)",
+      "time": "Jun 2022 - Agu 2022"
+    },
+    {
+      "desc": "Menjelajahi pengembangan frontend dengan tumpukan teknologi NodeJS, EJS, ReactJS, dan NextJS. Fokusnya adalah proyek capstone, aplikasi frontend untuk pemesanan mobil. Tujuannya adalah untuk mendapatkan pengalaman langsung dalam membangun antarmuka pemesanan mobil yang ramah pengguna sambil menguasai kerumitan teknologi frontend ini.",
+      "time": "Feb 2022 - Jul 2022"
+    },
+    {
+      "desc": "Membangun proyek capstone, Calories Tracker & Hospital Management System, dengan backend Golang sebagai RESTful API dan frontend ReactJS. Backend yang didukung oleh Golang memastikan efisiensi, sementara frontend ReactJS menyediakan antarmuka yang ramah pengguna untuk melacak kalori dan mengelola informasi terkait rumah sakit.",
+      "time": "Agu 2021 - Jan 2022"
+    },
+    {
+      "desc": "Saya bekerja sama dengan tim untuk membuat proyek capstone, aplikasi machine learning intuitif yang mampu menghitung kalori dengan akurat pada foto makanan. Berfungsi sebagai API terintegrasi dengan Firebase dan diterapkan di Google Cloud dengan Cloud Balancing, proyek kami dengan mulus menggabungkan kecakapan machine learning dengan solusi berbasis cloud yang efisien.",
+      "time": "Feb 2021 - Jul 2021"
+    }
+  ],
+  "projects": [
+    {
+      "description": "Halaman utama untuk SeaPhantom, sebuah proyek NFT yang berfokus pada teknologi inovatif dan berkelanjutan. Jelajahi dunia NFT dan perdagangan peer-to-peer di platform SeaPhantom."
+    },
+    {
+      "description": "Terlibat dalam perdagangan NFT dengan proyek P2P Rum Token Escrow Trading. Platform ini memfasilitasi transaksi NFT yang aman dan transparan."
+    },
+    {
+      "description": "Jelajahi Profil Perusahaan Labgrownbeasts, memamerkan inovasi dan keunggulan di bidang ini. Ketahui tentang visi, misi, dan pekerjaan canggih yang kami lakukan."
+    },
+    {
+      "description": "Aplikasi untuk melacak dan menghitung asupan kalori harian, termasuk rencana makan. Terintegrasi dengan Open API untuk wawasan gizi yang komprehensif."
+    }
+  ],
+  "footer": {
+    "versionOne": " Versi Satu"
+  }
+}
