@@ -13,8 +13,7 @@ import MenuNavigation from "@/components/MenuNavigation";
 import Footer from "@/components/Footer";
 import TechStack from "@/components/TechStack";
 import SkeletonMask from "@/components/SkeletonMask";
-import { options } from "@/lib/data";
-import { projectsData } from "@/lib/data";
+import { options, projectsData } from "@/lib/data";
 
 const Page = () => {
   const [items, setItems] = useState<IListItem[]>(initialItem); // Replace with your actual items

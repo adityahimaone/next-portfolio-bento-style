@@ -7,7 +7,7 @@ interface Props {
 
 const SkeletonMask = ({ image }: Props) => {
   return (
-    <div className="flex flex-1 w-full h-full min-h-[6rem] border border-slate-100 rounded-[28px] bg-black/[0.2] border-black/[0.2] bg-neutral-300">
+    <div className="flex flex-1 w-full h-full min-h-[6rem] border border-slate-100 dark:border-slate-900 rounded-[28px] bg-black/[0.2] border-black/[0.2] bg-neutral-300">
       {image && (
         <Image
           src={image}
