@@ -4,10 +4,12 @@ import { IconCloudDownload } from "@tabler/icons-react";
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const About = () => {
   const controls = useAnimation();
   const controlsIcon = useAnimation();
+  const t = useTranslations("about");
 
   const [memoji, setMemoji] = useState("/memoji-2.png");
 
@@ -86,9 +88,9 @@ const About = () => {
         </motion.a>
       </div>
       <h1 className="text-base leading-relaxed">
-        I&apos;m <span className="text-2xl font-bold font-mochi">adit</span>, a
-        dedicated Frontend Developer with a journey spanning two vibrant years
-        in the dynamic realm of web development.
+        {t("intro")}{" "}
+        <span className="text-2xl font-bold font-mochi">{t("name")}</span>,{" "}
+        {t("description")}
       </h1>
     </div>
   );

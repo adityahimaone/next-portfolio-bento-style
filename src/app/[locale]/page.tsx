@@ -15,7 +15,14 @@ import TechStack from "@/components/TechStack";
 import SkeletonMask from "@/components/SkeletonMask";
 import { options, projectsData } from "@/lib/data";
 
-const Page = () => {
+interface Props {
+  params: {
+    locale: string;
+  };
+}
+
+const Page = ({ params: { locale } }: Props) => {
+  console.log(locale, "locale");
   const [items, setItems] = useState<IListItem[]>(initialItem); // Replace with your actual items
   const [selected, setSelected] = useState<string>("all");
 
