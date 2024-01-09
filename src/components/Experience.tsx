@@ -19,19 +19,19 @@ const Experience = (props: Props) => {
   return (
     <ScrollArea>
       {experienceList?.map((item) => (
-        <div key={item.id} className="relative pl-6 py-2 group">
-          <div className="font-medium text-sm text-primary-ext-500 mb-1 sm:mb-0">
+        <div key={item.id} className="relative py-2 pl-6 group">
+          <div className="mb-1 text-sm font-medium text-primary-ext-500 sm:mb-0">
             {item.subtitle}
           </div>
-          <div className="flex flex-col items-start mb-1 group-last:before:hidden before:absolute before:left-2 before:h-full before:px-px before:bg-slate-300 before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 after:w-2 after:h-2 after:bg-pallet-blue-5 after:border-4 after:box-content after:border-slate-100 after:rounded-full after:-translate-x-1/2 after:translate-y-1.5">
-            <time className="left-0 translate-y-0.5 inline-flex items-center justify-center text-[10px] font-semibold uppercase w-36 h-5 mb-1 text-white bg-pallet-blue-4 rounded-full">
+          <div className="group-last:before:hidden before:absolute after:absolute before:left-2 after:left-2 mb-1 after:box-content flex after:h-2 before:h-full after:w-2 before:-translate-x-1/2 after:-translate-x-1/2 before:translate-y-3 flex-col items-start before:self-start after:rounded-full after:border-4 after:border-slate-100 before:bg-slate-300 before:px-px after:bg-pallet-blue-5 after:translate-y-1.5">
+            <time className="left-0 mb-1 inline-flex h-5 w-36 items-center justify-center rounded-full font-semibold uppercase text-white translate-y-0.5 text-[10px] bg-pallet-blue-4">
               {item.time}
             </time>
-            <div className="text-xs font-bold text-pallet-blue-3">
+            <div className="text-xs font-light text-pallet-blue-3">
               {item.title}
             </div>
           </div>
-          <p className="text-slate-400 text-xs">{item.desc}</p>
+          <p className="text-xs text-slate-400">{item.desc}</p>
         </div>
       ))}
     </ScrollArea>

@@ -10,13 +10,13 @@ interface Props {
 
 const MenuNavigation = ({ selected, options, handleChange }: Props) => {
   return (
-    <MaxWidthWrapper className="py-6 flex items-center flex-col sm:flex-row">
+    <MaxWidthWrapper className="flex flex-col items-center py-6 sm:flex-row">
       <div className="relative">
         <h2 className="text-bold mb-2 sm:mb-0 font-mochi text-2xl bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.pallet-blue.1),theme(colors.pallet-blue.2),theme(colors.sky.400),theme(colors.pallet-purple.1),theme(colors.pallet-pink.1),theme(colors.sky.400),theme(colors.pallet-blue.2),theme(colors.pallet-blue.1))] bg-[length:200%_auto] animate-gradient">
           adit.
         </h2>
       </div>
-      <div className="mx-auto w-fit p-1.5 bg-slate-200 dark:bg-card dark:border dark:border-white/[0.2] rounded-full flex flex-wrap gap-2">
+      <div className="mx-auto flex w-fit flex-wrap gap-2 rounded-full bg-slate-200 p-1.5 dark:bg-card dark:border-white/[0.2] dark:border">
         {options.map((option) => (
           <Chip
             text={option}
@@ -53,7 +53,7 @@ const Chip = ({
         <motion.span
           layoutId="pill-tab"
           transition={{ type: "spring", duration: 0.5 }}
-          className="absolute inset-0 z-0 bg-gradient-to-r from-white dark:from-slate-500 to-slate-50 dark:to-slate-300 shadow-md dark:shadow-gray-700 rounded-md"
+          className="absolute inset-0 z-0 rounded-md bg-gradient-to-r from-white to-slate-50 shadow-md dark:from-slate-500 dark:to-slate-300 dark:shadow-gray-700"
         ></motion.span>
       )}
     </button>

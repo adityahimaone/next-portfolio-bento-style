@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Animation from "../../public/animations/animation-cat.json";
 import { motion } from "framer-motion";
@@ -8,13 +8,12 @@ import {
   DiReact,
   DiCss3,
   DiSass,
-  DiNodejsSmall,
   DiGit,
-  DiNpm,
   DiGo,
   DiSwift,
 } from "react-icons/di";
 import { cn } from "@/lib/utils";
+import { BiLogoTypescript } from "react-icons/bi";
 
 const techStackData = [
   {
@@ -61,8 +60,8 @@ const techStackData = [
   },
   {
     id: 7,
-    title: "Node JS",
-    icons: <DiNodejsSmall className="group-hover:opacity-0" />,
+    title: "Typescript",
+    icons: <BiLogoTypescript className="group-hover:opacity-0" />,
     color: "text-white",
     background: "bg-pallet-blue-4",
   },
@@ -74,7 +73,7 @@ const techStackData = [
     background: "bg-pallet-blue-1",
   },
   {
-    id: 8,
+    id: 9,
     title: "Swift",
     icons: <DiSwift className="group-hover:opacity-0" />,
     color: "text-white",
@@ -90,22 +89,22 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className="flex flex-col sm:flex-row h-full">
-      <div className="grid grid-cols-3 sm:grid-rows-3 gap-2 flex-1">
+    <div className="flex h-full flex-col sm:flex-row">
+      <div className="grid flex-1 grid-cols-3 gap-2 sm:grid-rows-3">
         {isMounted &&
           techStackData.map((item, i) => (
             <div
               key={item.id}
-              className="flex justify-center items-center hover:scale-105 group transition-all ease-in-out duration-200"
+              className="flex items-center justify-center transition-all duration-200 ease-in-out group hover:scale-105"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: 0.5 + i * 0.1 }}
                 className={cn(
                   "p-5 rounded-md flex justify-center items-center cursor-default group-hover:bg-opacity-25 group-hover:shadow-xl group-hover:[mask-image:radial-gradient(ellipse_at_center,white,transparent)]",
                   item.background,
-                  item.color
+                  item.color,
                 )}
               >
                 <div className="text-4xl">{item.icons}</div>
@@ -120,12 +119,14 @@ const TechStack = () => {
       </div>
       <div className="h-full flex-1">
         <div
-          className="flex items-center justify-center h-full"
+          className="flex h-full items-center justify-center"
           aria-hidden="true"
         >
-          {isMounted && (
-            <Player autoplay loop src={Animation} className="w-full h-full" />
-          )}
+          <Suspense fallback={<div>Loading...</div>}>
+            {isMounted && (
+              <Player autoplay loop src={Animation} className="h-full w-full" />
+            )}
+          </Suspense>
         </div>
       </div>
     </div>

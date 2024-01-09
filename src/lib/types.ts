@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface IExperienceData {
   id: number;
   title: string;
@@ -12,8 +14,6 @@ export interface IBentoGridItem {
   description?: string | React.ReactNode;
   header?: React.ReactNode;
   icon?: React.ReactNode;
-  idx: number;
-  value: any; // Replace any with the actual type of your value
   index: number;
   active?: boolean;
 }
@@ -34,4 +34,12 @@ export interface IListSocialMedia {
   borderColor: string;
   icon: React.ReactNode;
   shadow: string;
+}
+
+export interface IProjectData {
+  id: number;
+  title: string;
+  description: string;
+  image: string | StaticImageData;
+  url: string;
 }

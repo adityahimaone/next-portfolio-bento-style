@@ -22,7 +22,7 @@ const SkeletonThree = () => {
         repeat: Infinity,
         repeatType: "reverse",
       }}
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] rounded-lg bg-dot-black/[0.2] flex-col space-y-2"
+      className="flex h-full w-full flex-1 flex-col rounded-lg min-h-[6rem] bg-dot-black/[0.2] space-y-2 dark:bg-dot-white/[0.2]"
       style={{
         background:
           "linear-gradient(-45deg, #480CA8, #F72585, #4361EE, #4CC9F0)",
@@ -30,7 +30,7 @@ const SkeletonThree = () => {
       }}
     >
       <motion.div className="h-full w-full rounded-[32px]">
-        <div className="flex justify-center items-center h-full">
+        <div className="flex h-full items-center justify-center">
           <ThemeToggle />
         </div>
       </motion.div>

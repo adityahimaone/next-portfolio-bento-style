@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import TechStack from "@/components/TechStack";
 import SkeletonMask from "@/components/SkeletonMask";
 import { options } from "@/lib/data";
+import { projectsData } from "@/lib/data";
 
 const Page = () => {
   const [items, setItems] = useState<IListItem[]>(initialItem); // Replace with your actual items
@@ -73,24 +74,21 @@ const Page = () => {
 
   return (
     <>
-      <main className="py-3 px-6 sm:px-3 md:px-0">
+      <main className="px-6 py-3 sm:px-3 md:px-0">
         <MenuNavigation
           selected={selected}
           options={options}
           handleChange={handleChange}
         />
-        {/* @ts-ignore */}
         <BentoGrid
           list={items}
           setList={setItems}
-          className="max-w-4xl mx-auto md:auto-rows-[20rem]"
+          className="mx-auto max-w-4xl md:auto-rows-[20rem]"
         >
           {items.map((item, index) => (
-            // @ts-ignore
             <BentoGridItem
               key={`item-${index}-${item.title}`}
               index={index}
-              value={item}
               title={item.title}
               description={item.description}
               header={item.header}
@@ -135,38 +133,34 @@ const initialItem: IListItem[] = [
     active: true,
   },
   {
-    title: "Project 1",
-    description:
-      "Understand the impact of effective communication in our lives.",
-    header: <SkeletonMask />,
+    title: projectsData[0].title,
+    description: projectsData[0].description,
+    header: <SkeletonMask image={projectsData[0].image} />,
     className: "md:col-span-1 p-4",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
     active: true,
   },
   {
-    title: "Project 2",
-    description:
-      "Understand the impact of effective communication in our lives.",
-    header: <SkeletonMask />,
+    title: projectsData[1].title,
+    description: projectsData[1].description,
+    header: <SkeletonMask image={projectsData[1].image} />,
     className: "md:col-span-1 p-4",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
     active: true,
   },
 
   {
-    title: "Project 3",
-    description:
-      "Understand the impact of effective communication in our lives.",
-    header: <SkeletonMask />,
+    title: projectsData[2].title,
+    description: projectsData[2].description,
+    header: <SkeletonMask image={projectsData[2].image} />,
     className: "md:col-span-1 p-4",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
     active: true,
   },
   {
-    title: "Project 4",
-    description:
-      "Understand the impact of effective communication in our lives.",
-    header: <SkeletonMask />,
+    title: projectsData[3].title,
+    description: projectsData[3].description,
+    header: <SkeletonMask image={projectsData[3].image} />,
     className: "md:col-span-1 p-4",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
     active: true,

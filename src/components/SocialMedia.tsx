@@ -10,7 +10,7 @@ import { IListSocialMedia } from "@/lib/types";
 const socialMediaList: IListSocialMedia[] = [
   {
     icon: <Github className="text-white" />,
-    link: "https://github.com",
+    link: "https://github.com/adityahimaone",
     text: "Github",
     color: "black dark:text-white",
     borderColor: "border-black dark:border-white",
@@ -18,7 +18,7 @@ const socialMediaList: IListSocialMedia[] = [
   },
   {
     icon: <Linkedin />,
-    link: "https://linkedin.com",
+    link: "https://www.linkedin.com/in/adityahimaone",
     text: "Linkedin",
     color: "pallet-blue-4",
     borderColor: "border-pallet-blue-3",
@@ -26,7 +26,7 @@ const socialMediaList: IListSocialMedia[] = [
   },
   {
     icon: <FaXTwitter />,
-    link: "https://twitter.com",
+    link: "https://twitter.com/adityahimaone",
     text: "Twitter / X",
     color: "pallet-blue-1",
     borderColor: "border-pallet-blue-1",
@@ -34,7 +34,7 @@ const socialMediaList: IListSocialMedia[] = [
   },
   {
     icon: <Instagram />,
-    link: "https://instagram.com",
+    link: "http://www.instagram.com/adityahimaone",
     text: "Instagram",
     color: "pallet-pink-2",
     borderColor: "border-pallet-pink-2",
@@ -42,7 +42,7 @@ const socialMediaList: IListSocialMedia[] = [
   },
   {
     icon: <Mail />,
-    link: "https://mail.com",
+    link: "mailto:adityahimaone@gmail.com",
     text: "Email",
     color: "pallet-purple-1",
     borderColor: "border-pallet-purple-1",
@@ -58,8 +58,8 @@ const SocialMedia = () => {
   }, []);
 
   return (
-    <div className="flex items-center h-full w-full">
-      <ul className="space-y-3 w-full">
+    <div className="flex h-full w-full items-center">
+      <ul className="w-full space-y-3">
         {listItem.map((item, i) => (
           <motion.li
             key={i}
@@ -72,14 +72,14 @@ const SocialMedia = () => {
               type="button"
               className={cn(
                 "w-full px-2 py-1.5 border rounded-md bg-white dark:bg-card hover:bg-transparent hover:shadow-gray-800 dark:hover:shadow-accent dark:hover:bg-accent hover:shadow-[4px_4px_0px_0px] dark:hover:shadow-[4px_4px_0px_0px] transition-all cursor-pointer",
-                item.borderColor
+                item.borderColor,
               )}
             >
               <a
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-start w-full cursor-pointer"
+                className="flex w-full cursor-pointer items-center justify-start"
               >
                 <div
                   className={cn(
@@ -87,7 +87,7 @@ const SocialMedia = () => {
                     `bg-${item.color}`,
                     {
                       "bg-black": i === 0,
-                    }
+                    },
                   )}
                 >
                   {item.icon}

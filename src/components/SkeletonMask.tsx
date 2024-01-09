@@ -1,8 +1,24 @@
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 
-const SkeletonMask = () => {
+interface Props {
+  image?: string | StaticImageData;
+}
+
+const SkeletonMask = ({ image }: Props) => {
   return (
-    <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-[28px] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-300 dark:bg-black"></div>
+    <div className="flex flex-1 w-full h-full min-h-[6rem] border border-slate-100 rounded-[28px] bg-black/[0.2] border-black/[0.2] bg-neutral-300">
+      {image && (
+        <Image
+          src={image}
+          alt="placeholder"
+          width={300}
+          height={300}
+          objectFit="cover"
+          className="rounded-[26px]"
+        />
+      )}
+    </div>
   );
 };
 
