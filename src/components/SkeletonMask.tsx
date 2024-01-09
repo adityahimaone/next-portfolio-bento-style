@@ -1,8 +1,8 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 
 interface Props {
-  image?: string;
+  image?: string | StaticImageData;
 }
 
 const SkeletonMask = ({ image }: Props) => {
