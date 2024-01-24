@@ -2,18 +2,20 @@
   "name": "next-porto-1",
   "version": "0.1.0",
   "private": true,
+  "author": "adityahimaone",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install",
+    "release": "cross-env HUSKY=0 standard-version"
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
     "@tabler/icons-react": "^2.45.0",
-    "array-move": "^4.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^10.17.8",
@@ -23,7 +25,6 @@
     "next-intl": "^3.4.1",
     "npm": "^10.2.5",
     "react": "^18",
-    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "react-sortablejs": "^6.1.4",
@@ -32,17 +33,33 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@commitlint/cz-commitlint": "^18.4.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-beautiful-dnd": "^13.1.8",
     "@types/react-dom": "^18",
     "@types/sortablejs": "^1.15.7",
     "autoprefixer": "^10.0.1",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
     "next-themes": "^0.2.1",
     "postcss": "^8",
+    "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
-  }
+  },
+  "engines": {
+    "node": ">=16.8.x",
+    "pnpm": ">=8"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
+  },
+  "packageManager": "yarn@4.0.2"
 }
