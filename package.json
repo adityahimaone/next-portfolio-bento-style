@@ -2,13 +2,14 @@
   "name": "next-porto-1",
   "version": "0.1.0",
   "private": true,
+  "author": "adityahimaone",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "commit": "cz"
+    "release": "cross-env HUSKY=0 standard-version"
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.3",
