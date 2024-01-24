@@ -15,6 +15,7 @@
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "@tabler/icons-react": "^2.45.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -60,6 +61,5 @@
   },
   "resolutions": {
     "jackspeak": "2.1.1"
-  },
-  "packageManager": "yarn@4.0.2"
+  }
 }
