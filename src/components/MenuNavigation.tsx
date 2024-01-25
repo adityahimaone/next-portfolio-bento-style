@@ -11,17 +11,21 @@ import {
 } from '@/components/ui/tooltip';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 interface Props {
-  selected: string;
-  options: string[];
-  handleChange: (status: string) => void;
+  selected?: string;
+  options?: string[];
+  handleChange?: (status: string) => void;
 }
 
 const MenuNavigation = ({ selected, options, handleChange }: Props) => {
   const t = useTranslations('navigation');
   const locale = useLocale();
-  console.log(locale);
+  const pathname = usePathname();
+  const urlLink = pathname.split('/')[2];
+  console.log(locale, pathname, urlLink, 'pathname');
 
   return (
     <MaxWidthWrapper className="flex flex-col items-center py-6 sm:flex-row">
@@ -30,8 +34,8 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
           adit.
         </h2>
       </div>
-      <div className="mx-auto flex w-fit flex-wrap gap-2 rounded-full bg-slate-200 p-1.5 dark:border dark:border-white/[0.2] dark:bg-card">
-        {options.map((option) => (
+      <nav className="mx-auto flex w-fit flex-wrap gap-2 rounded-full bg-slate-200 p-1.5 dark:border dark:border-white/[0.2] dark:bg-card">
+        {options?.map((option) => (
           <Chip
             text={t(option)}
             option={option}
@@ -40,7 +44,22 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
             key={option}
           />
         ))}
-        <div className="flex items-center justify-center rounded-full bg-slate-300 p-2 shadow-md">
+        {urlLink === 'repository' && (
+          <div className="relative flex items-center rounded-md px-2 py-1 text-sm transition-colors sm:px-3.5 sm:py-0.5">
+            <Link href={'/'}>
+              <span className="relative z-10 text-gray-900">Home</span>
+            </Link>
+          </div>
+        )}
+        <div
+          className={cn(
+            'flex items-center justify-center rounded-full  p-2 shadow-md',
+            {
+              'bg-slate-50 dark:bg-slate-700': urlLink === 'repository',
+              'bg-slate-200 dark:bg-slate-500': urlLink !== 'repository',
+            },
+          )}
+        >
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
@@ -54,7 +73,7 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
             </Tooltip>
           </TooltipProvider>
         </div>
-      </div>
+      </nav>
     </MaxWidthWrapper>
   );
 };
@@ -68,16 +87,17 @@ const Chip = ({
   text: string;
   option: string;
   selected: boolean;
-  setSelected: (status: string) => void;
+  setSelected?: (status: string) => void;
 }) => {
   return (
     <button
-      onClick={() => setSelected(option)}
+      type="button"
+      onClick={() => setSelected && setSelected(option)}
       className={`${
         selected
           ? 'text-gray-900'
           : 'text-gray-500 hover:bg-slate-700 hover:text-slate-200'
-      } relative rounded-md px-3.5 py-1 text-sm transition-colors`}
+      } relative rounded-md px-2 py-1 text-sm transition-colors sm:px-3.5 sm:py-0.5`}
     >
       <span className="relative z-10">{text}</span>
       {selected && (
