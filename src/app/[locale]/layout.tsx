@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import Theme from '@/components/ThemeProvider';
 import { useLocale, NextIntlClientProvider, useMessages } from 'next-intl';
 import { notFound } from 'next/navigation';
+import PageTransitionEffect from './pageTransitionEffect';
 
 const poppins = Poppins({
   subsets: ['devanagari'],
@@ -50,11 +51,13 @@ export default function RootLayout({
     <NextIntlClientProvider locale={locale} messages={messages}>
       <html lang={locale} suppressHydrationWarning>
         <body className={poppins.className}>
-          <Theme>
-            <div className={cn('bg-background-2 dark:bg-background')}>
-              {children}
-            </div>
-          </Theme>
+          <PageTransitionEffect>
+            <Theme>
+              <div className={cn('bg-background-2 dark:bg-background')}>
+                {children}
+              </div>
+            </Theme>
+          </PageTransitionEffect>
         </body>
       </html>
     </NextIntlClientProvider>

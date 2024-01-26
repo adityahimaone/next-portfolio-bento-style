@@ -30,6 +30,7 @@
     "react-dom": "^18",
     "react-icons": "^4.12.0",
     "react-sortablejs": "^6.1.4",
+    "sass": "^1.70.0",
     "sortablejs": "^1.15.1",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",

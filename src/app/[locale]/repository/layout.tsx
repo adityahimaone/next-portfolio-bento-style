@@ -2,6 +2,7 @@ import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { useLocale, NextIntlClientProvider, useMessages } from 'next-intl';
 import { notFound } from 'next/navigation';
+import PageTransitionEffect from '../pageTransitionEffect';
 
 export const metadata: Metadata = {
   title: 'adit — repository',
@@ -40,7 +41,11 @@ export default function RootLayout({
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <div className={cn('bg-background-2 dark:bg-background')}>{children}</div>
+      <PageTransitionEffect>
+        <div className={cn('bg-background-2 dark:bg-background')}>
+          {children}
+        </div>
+      </PageTransitionEffect>
     </NextIntlClientProvider>
   );
 }

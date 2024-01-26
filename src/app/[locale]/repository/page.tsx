@@ -7,6 +7,8 @@ import axios from 'axios';
 import { Github, icons } from 'lucide-react';
 import { SiTypescript, SiJavascript, SiSwift } from 'react-icons/si';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import Curve from '@/components/layouts/curve';
+import Stairs from '@/components/layouts/stairs';
 
 interface IRepoGithub {
   id: number;
@@ -59,7 +61,7 @@ const Page = () => {
 
   console.log(repos, selectedRepos, 'repos');
   return (
-    <>
+    <Stairs>
       <main className="min-h-screen px-6 py-3 sm:px-3 md:px-0">
         <MenuNavigation />
         <MaxWidthWrapper>
@@ -103,7 +105,7 @@ const Page = () => {
           </div>
         </MaxWidthWrapper>
       </main>
-    </>
+    </Stairs>
   );
 };
 
