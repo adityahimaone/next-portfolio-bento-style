@@ -15,6 +15,16 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'adit — frontend developer',
   description: "adit's personal website",
+  keywords: [
+    'portfolio',
+    'portfolio website',
+    'developer',
+    'frontend',
+    'frontend developer',
+    'web developer',
+    'web development',
+    'react',
+  ],
   icons: {
     icon: [
       {
@@ -28,6 +38,22 @@ export const metadata: Metadata = {
         href: '/memoji-1.png',
       },
     ],
+  },
+  openGraph: {
+    title: 'adit — frontend developer',
+    type: 'website',
+    images:
+      'https://ucarecdn.com/b624aa7d-978f-44ef-8e45-bf3c12f1e846/memojilaptop1.png', // Same image as above
+    url: 'https://adityahimaone.tech/',
+    description: "adit's personal website",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@adityahimaone',
+    title: 'adit — frontend developer',
+    description: "adit's personal website",
+    images:
+      'https://ucarecdn.com/b624aa7d-978f-44ef-8e45-bf3c12f1e846/memojilaptop1.png', // Same image as above
   },
 };
 
