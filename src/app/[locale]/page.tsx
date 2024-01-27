@@ -10,7 +10,6 @@ import About from '@/components/About';
 import SocialMedia from '@/components/SocialMedia';
 import Experience from '@/components/Experience';
 import MenuNavigation from '@/components/MenuNavigation';
-import Footer from '@/components/Footer';
 import TechStack from '@/components/TechStack';
 import SkeletonMask from '@/components/SkeletonMask';
 import { options, projectsData } from '@/lib/data';
@@ -170,7 +169,6 @@ const Page = ({ params: { locale } }: Props) => {
           ))}
         </BentoGrid>
       </main>
-      <Footer />
     </Curve>
   );
 };
