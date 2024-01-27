@@ -5,7 +5,7 @@ import MenuNavigation from '@/components/MenuNavigation';
 import React, { ReactNode, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Github, icons } from 'lucide-react';
-import { SiTypescript, SiJavascript, SiSwift } from 'react-icons/si';
+import { SiTypescript, SiJavascript, SiSwift, SiGo } from 'react-icons/si';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import Curve from '@/components/layouts/curve';
 import Stairs from '@/components/layouts/stairs';
@@ -31,8 +31,9 @@ const Page = () => {
 
   const languageIcons: ILanguageIcons = {
     typescript: <SiTypescript className="h-8 w-8 text-pallet-blue-1" />,
-    javascript: <SiJavascript className="text-pallet-blue-1" />,
+    javascript: <SiJavascript className="h-8 w-8 text-yellow-300" />,
     swift: <SiSwift className=" h-8 w-8 text-orange-600" />,
+    go: <SiGo className="h-8 w-8 text-pallet-blue-1" />,
   };
 
   const gridItemVariants = {
@@ -45,7 +46,7 @@ const Page = () => {
       y: 0,
       transition: {
         duration: 0.5,
-        delay: 0.5,
+        delay: 0.3,
       },
     },
   };
@@ -67,7 +68,7 @@ const Page = () => {
   useEffect(() => {
     const fetchRepos = async () => {
       const response = await axios.get(
-        'https://api.github.com/users/adityahimaone/repos?sort=created',
+        'https://api.github.com/users/adityahimaone/repos?sort=created&per_page=100',
       );
       setRepos(response.data);
     };
@@ -77,10 +78,18 @@ const Page = () => {
 
   useEffect(() => {
     const selectedReposList = [
+      'SwiftUI-EmojiFinder',
+      'SwiftUI-StateBinding',
       'Next-Fake-Nike-Landing-Page',
       'Framer-Motion',
       'Next-DigitalMarket',
       'SwiftUI-Reusable-Layout',
+      'NextJS-Travel-Agency',
+      'FE-Cryptocurrency-LandingPage',
+      'FE-Daily-Calorie-Apps',
+      'FE-Hospital-Management-System',
+      'BE-Daily-Calorie-App-Api',
+      'go-clean-architecture',
     ];
 
     const selected = repos?.filter((repo) =>
@@ -119,7 +128,7 @@ const Page = () => {
                 <motion.div
                   variants={gridItemVariants}
                   key={repo.id}
-                  className="text-wrap rounded-[32px] bg-white p-5 shadow-input"
+                  className="text-wrap rounded-[32px] border border-transparent bg-white p-5 shadow-input dark:border-white/[0.5] dark:bg-card"
                 >
                   <div className="flex flex-row items-center gap-x-2">
                     <div className="">

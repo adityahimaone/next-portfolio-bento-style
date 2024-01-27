@@ -59,9 +59,9 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
           className={cn(
             'flex items-center justify-center rounded-full  p-2 shadow-md',
             {
-              'bg-slate-50 hover:bg-slate-700 hover:text-slate-200 dark:bg-slate-700':
+              'bg-slate-50 hover:bg-slate-700 hover:text-slate-200 dark:bg-slate-800':
                 urlLink === 'repository',
-              'bg-slate-200 hover:bg-slate-700 hover:text-slate-200 dark:bg-slate-500':
+              'bg-slate-200 hover:bg-slate-700 hover:text-slate-200 dark:bg-slate-800':
                 urlLink !== 'repository',
             },
           )}
