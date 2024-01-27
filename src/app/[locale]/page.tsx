@@ -1,20 +1,22 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import BentoGrid from "@/components/BentoGrid";
-import BentoGridItem from "@/components/BentoGridItem";
-import { IconTableColumn } from "@tabler/icons-react";
-import { IListItem } from "@/lib/types";
-import ItemTwo from "@/components/ItemTwo";
-import About from "@/components/About";
-import SocialMedia from "@/components/SocialMedia";
-import Experience from "@/components/Experience";
-import MenuNavigation from "@/components/MenuNavigation";
-import Footer from "@/components/Footer";
-import TechStack from "@/components/TechStack";
-import SkeletonMask from "@/components/SkeletonMask";
-import { options, projectsData } from "@/lib/data";
-import { useTranslations } from "next-intl";
+import React, { useState } from 'react';
+import BentoGrid from '@/components/BentoGrid';
+import BentoGridItem from '@/components/BentoGridItem';
+import { IconTableColumn } from '@tabler/icons-react';
+import { IListItem } from '@/lib/types';
+import ItemTwo from '@/components/ItemTwo';
+import About from '@/components/About';
+import SocialMedia from '@/components/SocialMedia';
+import Experience from '@/components/Experience';
+import MenuNavigation from '@/components/MenuNavigation';
+import Footer from '@/components/Footer';
+import TechStack from '@/components/TechStack';
+import SkeletonMask from '@/components/SkeletonMask';
+import { options, projectsData } from '@/lib/data';
+import { useTranslations } from 'next-intl';
+import Curve from '@/components/layouts/curve';
+import Stairs from '@/components/layouts/stairs';
 
 interface Props {
   params: {
@@ -23,40 +25,40 @@ interface Props {
 }
 
 const Page = ({ params: { locale } }: Props) => {
-  const t = useTranslations("projects");
+  const t = useTranslations('projects');
 
   const initialItem: IListItem[] = [
     {
       header: <About />,
-      className: "md:col-span-2 px-7 py-8",
+      className: 'md:col-span-2 px-7 py-8',
       active: true,
     },
     {
       header: <ItemTwo />,
-      className: "md:col-span-1",
+      className: 'md:col-span-1',
       active: true,
     },
     {
       header: <SocialMedia />,
-      className: "md:col-span-1 px-7 py-8",
+      className: 'md:col-span-1 px-7 py-8',
       active: true,
     },
     {
       header: <TechStack />,
-      className: "md:col-span-2 px-7 py-8",
+      className: 'md:col-span-2 px-7 py-8',
       icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
       active: true,
     },
     {
       header: <Experience />,
-      className: "md:col-span-1 md:row-span-2 p-4",
+      className: 'md:col-span-1 md:row-span-2 p-4',
       active: true,
     },
     {
       title: projectsData[0].title,
       description: t(`${[0]}.description`),
       header: <SkeletonMask image={projectsData[0].image} />,
-      className: "md:col-span-1 p-4",
+      className: 'md:col-span-1 p-4',
       icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
       active: true,
     },
@@ -64,7 +66,7 @@ const Page = ({ params: { locale } }: Props) => {
       title: projectsData[1].title,
       description: t(`${[1]}.description`),
       header: <SkeletonMask image={projectsData[1].image} />,
-      className: "md:col-span-1 p-4",
+      className: 'md:col-span-1 p-4',
       icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
       active: true,
     },
@@ -73,7 +75,7 @@ const Page = ({ params: { locale } }: Props) => {
       title: projectsData[2].title,
       description: t(`${[2]}.description`),
       header: <SkeletonMask image={projectsData[2].image} />,
-      className: "md:col-span-1 p-4",
+      className: 'md:col-span-1 p-4',
       icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
       active: true,
     },
@@ -81,22 +83,22 @@ const Page = ({ params: { locale } }: Props) => {
       title: projectsData[3].title,
       description: t(`${[3]}.description`),
       header: <SkeletonMask image={projectsData[3].image} />,
-      className: "md:col-span-1 p-4",
+      className: 'md:col-span-1 p-4',
       icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
       active: true,
     },
   ];
 
   const [items, setItems] = useState<IListItem[]>(initialItem); // Replace with your actual items
-  const [selected, setSelected] = useState<string>("all");
+  const [selected, setSelected] = useState<string>('all');
 
   const onSortAll = () => {
-    setSelected("all");
+    setSelected('all');
     setItems(initialItem);
   };
 
   const onSortAbout = () => {
-    setSelected("about");
+    setSelected('about');
     const first = [
       { ...initialItem[0], active: true },
       { ...initialItem[2], active: true },
@@ -114,7 +116,7 @@ const Page = ({ params: { locale } }: Props) => {
   };
 
   const onSortProject = () => {
-    setSelected("projects");
+    setSelected('projects');
     const first = [
       { ...initialItem[5], active: true },
       { ...initialItem[6], active: true },
@@ -133,9 +135,9 @@ const Page = ({ params: { locale } }: Props) => {
 
   const handleChange = (status: string) => {
     setSelected(status);
-    if (status === "all") {
+    if (status === 'all') {
       onSortAll();
-    } else if (status === "projects") {
+    } else if (status === 'projects') {
       onSortProject();
     } else {
       onSortAbout();
@@ -143,7 +145,7 @@ const Page = ({ params: { locale } }: Props) => {
   };
 
   return (
-    <>
+    <Curve>
       <main className="px-6 py-3 sm:px-3 md:px-0">
         <MenuNavigation
           selected={selected}
@@ -169,7 +171,7 @@ const Page = ({ params: { locale } }: Props) => {
         </BentoGrid>
       </main>
       <Footer />
-    </>
+    </Curve>
   );
 };
 
