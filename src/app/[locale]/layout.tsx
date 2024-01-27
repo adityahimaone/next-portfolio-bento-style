@@ -6,6 +6,7 @@ import Theme from '@/components/ThemeProvider';
 import { useLocale, NextIntlClientProvider, useMessages } from 'next-intl';
 import { notFound } from 'next/navigation';
 import PageTransitionEffect from './pageTransitionEffect';
+import Footer from '@/components/Footer';
 
 const poppins = Poppins({
   subsets: ['devanagari'],
@@ -82,6 +83,7 @@ export default function RootLayout({
               <div className={cn('bg-background-2 dark:bg-background')}>
                 {children}
               </div>
+              <Footer />
             </Theme>
           </PageTransitionEffect>
         </body>
