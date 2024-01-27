@@ -74,7 +74,8 @@ export const projectsData: IProjectData[] = [
     title: 'Daily Calories Tracker Application',
     description:
       'Application for tracking and counting daily calorie intake, including meal plans. Integrates with Open API for comprehensive nutritional insights.',
-    image: imgDailyCalories,
+    image:
+      'https://ucarecdn.com/26d0d2ab-f0d4-453f-a71c-b395c744f7b0/dailycalories.png',
     url: 'https://github.com/adityahimaone/Daily-Calorie-Apps',
   },
 ];

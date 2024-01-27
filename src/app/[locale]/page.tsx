@@ -145,7 +145,7 @@ const Page = ({ params: { locale } }: Props) => {
   };
 
   return (
-    <Stairs>
+    <Curve>
       <main className="px-6 py-3 sm:px-3 md:px-0">
         <MenuNavigation
           selected={selected}
@@ -171,7 +171,7 @@ const Page = ({ params: { locale } }: Props) => {
         </BentoGrid>
       </main>
       <Footer />
-    </Stairs>
+    </Curve>
   );
 };
 

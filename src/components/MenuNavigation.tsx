@@ -45,18 +45,24 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
           />
         ))}
         {urlLink === 'repository' && (
-          <div className="relative flex items-center rounded-md px-2 py-1 text-sm transition-colors sm:px-3.5 sm:py-0.5">
+          <div className="relative flex items-center rounded-md px-2 py-1 text-sm text-gray-500 transition-colors hover:bg-slate-700 hover:text-slate-200 sm:px-3.5 sm:py-0.5">
             <Link href={'/'}>
-              <span className="relative z-10 text-gray-900">Home</span>
+              <span className="relative z-10 ">Home</span>
             </Link>
           </div>
         )}
-        <div
+        <motion.div
+          whileHover={{
+            scale: 1.1,
+            transition: { duration: 0.5 },
+          }}
           className={cn(
             'flex items-center justify-center rounded-full  p-2 shadow-md',
             {
-              'bg-slate-50 dark:bg-slate-700': urlLink === 'repository',
-              'bg-slate-200 dark:bg-slate-500': urlLink !== 'repository',
+              'bg-slate-50 hover:bg-slate-700 hover:text-slate-200 dark:bg-slate-700':
+                urlLink === 'repository',
+              'bg-slate-200 hover:bg-slate-700 hover:text-slate-200 dark:bg-slate-500':
+                urlLink !== 'repository',
             },
           )}
         >
@@ -64,7 +70,11 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
             <Tooltip>
               <TooltipTrigger>
                 <Link href={`${locale}/repository`}>
-                  <Github width={18} height={18} />
+                  <motion.div
+                    whileHover={{ rotate: 360, transition: { duration: 0.5 } }}
+                  >
+                    <Github width={18} height={18} />
+                  </motion.div>
                 </Link>
               </TooltipTrigger>
               <TooltipContent>
@@ -72,7 +82,7 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
-        </div>
+        </motion.div>
       </nav>
     </MaxWidthWrapper>
   );

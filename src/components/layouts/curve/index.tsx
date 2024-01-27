@@ -6,15 +6,15 @@ import React, { useEffect, useState } from 'react';
 import styles from './index.module.scss';
 import { text, curve, translate } from './anim';
 import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 interface IRoute {
   [key: string]: string;
 }
 
 const routes: IRoute = {
-  '/transition': 'Home',
-  '/transition/about': 'About',
-  '/transition/contact': 'Contact',
+  '/en': 'Home',
+  '/en/repository': 'Repository',
 };
 
 type Props = {
@@ -37,11 +37,12 @@ const Curve = ({ children }: Props) => {
     width: 0,
   });
 
+  console.log(router, 'router');
+
   useEffect(() => {
     function resize() {
       setDimensions({
         width: window.innerWidth,
-
         height: window.innerHeight,
       });
     }
@@ -55,15 +56,13 @@ const Curve = ({ children }: Props) => {
     };
   }, []);
 
-  console.log(dimensions, 'dimensions');
-
   return (
     <div className={`page ${styles.curve}`}>
       <div
         style={{ opacity: dimensions.width == null ? 1 : 0 }}
         className={styles.background}
       />
-      <motion.p className={styles.route} {...anim(text)}>
+      <motion.p className={cn('font-mochi', styles.route)} {...anim(text)}>
         {routes[router]}
       </motion.p>
       {dimensions.width > 0 && <SVG {...dimensions} />}
@@ -90,7 +89,7 @@ const SVG = ({ width, height }: { width: number; height: number }) => {
 `;
 
   return (
-    <motion.svg className="transition" {...anim(translate)}>
+    <motion.svg className={styles.transition} {...anim(translate)}>
       <motion.path {...anim(curve(initialPath, targetPath))} />
     </motion.svg>
   );

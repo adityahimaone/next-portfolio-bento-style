@@ -7,6 +7,7 @@
     left: 0;
     position: fixed;
     pointer-events: none;
+    z-index: 999;
   }
   .background {
     background-color: black;
@@ -20,5 +21,6 @@
     z-index: 3;
     transform: translateX(-50%);
     text-align: center;
+    z-index: 9999;
   }
 }

@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { IconCloudDownload } from "@tabler/icons-react";
-import React, { useState } from "react";
-import Image from "next/image";
-import { motion, useAnimation } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { IconCloudDownload } from '@tabler/icons-react';
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { motion, useAnimation } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 const About = () => {
   const controls = useAnimation();
   const controlsIcon = useAnimation();
-  const t = useTranslations("about");
+  const t = useTranslations('about');
 
-  const [memoji, setMemoji] = useState("/memoji-2.png");
+  const [memoji, setMemoji] = useState('/memoji-2.png');
 
   const hoverAnimation = {
     scale: 1.1,
@@ -30,54 +30,54 @@ const About = () => {
           <Image src={memoji} alt="memoji" width={150} height={150} />
         </motion.div>
         <motion.a
-          target={"_blank"}
+          target={'_blank'}
           href={
-            "https://drive.google.com/file/d/17ia4yvdvcrp0m76Vu6EbP-p6gCJKx7nJ/view?usp=sharing"
+            'https://drive.google.com/file/d/17ia4yvdvcrp0m76Vu6EbP-p6gCJKx7nJ/view?usp=sharing'
           }
           onTouchStart={() => {
             controls.start(hoverAnimation);
             controlsIcon.start({
               scale: 1,
-              display: "block",
+              display: 'block',
               transition: { duration: 0.5 },
             });
-            setMemoji("/memoji-3.png");
+            setMemoji('/memoji-3.png');
           }}
           onTouchEnd={() => {
             controls.start(unhoverAnimation);
             controlsIcon.start({
               scale: 0,
-              display: "none",
+              display: 'none',
               transition: { duration: 0.5 },
             });
-            setMemoji("/memoji-2.png");
+            setMemoji('/memoji-2.png');
           }}
           onHoverStart={() => {
             controls.start(hoverAnimation);
             controlsIcon.start({
               scale: 1,
-              display: "block",
+              display: 'block',
               transition: { duration: 0.5 },
             });
-            setMemoji("/memoji-3.png");
+            setMemoji('/memoji-3.png');
           }}
           onHoverEnd={() => {
             controls.start(unhoverAnimation);
             controlsIcon.start({
               scale: 0,
-              display: "none",
+              display: 'none',
               transition: { duration: 0.5 },
             });
-            setMemoji("/memoji-2.png");
+            setMemoji('/memoji-2.png');
           }}
-          className="relative inline-flex h-8 cursor-pointer overflow-hidden rounded-full border border-slate-200 group px-[2px] py-1.5 focus:outline-none"
+          className="group relative inline-flex h-8 cursor-pointer overflow-hidden rounded-full border border-slate-200 px-[2px] py-1.5 focus:outline-none"
         >
           <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white px-3 py-1 text-sm text-gray-900 backdrop-blur-3xl dark:bg-slate-950 dark:text-white">
-            Resume{" "}
+            Resume{' '}
             <span className="ml-1 group-hover:hidden group-hover:transition-all">
               &rarr;
             </span>
-            <motion.span initial={{ display: "none" }} animate={controlsIcon}>
+            <motion.span initial={{ display: 'none' }} animate={controlsIcon}>
               <IconCloudDownload
                 className="ml-2 font-semibold"
                 size={18}
@@ -87,11 +87,18 @@ const About = () => {
           </span>
         </motion.a>
       </div>
-      <h1 className="text-base leading-relaxed">
-        {t("intro")}{" "}
-        <span className="text-2xl font-bold font-mochi">{t("name")}</span>,{" "}
-        {t("description")}
-      </h1>
+      <motion.h1
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="text-base leading-relaxed"
+      >
+        {t('intro')}{' '}
+        <span className="font-mochi text-lg font-bold md:text-2xl">
+          {t('name')}
+        </span>
+        , {t('description')}
+      </motion.h1>
     </div>
   );
 };

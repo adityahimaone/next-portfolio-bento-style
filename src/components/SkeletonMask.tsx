@@ -1,5 +1,5 @@
-import Image, { StaticImageData } from "next/image";
-import React from "react";
+import Image, { StaticImageData } from 'next/image';
+import React from 'react';
 
 interface Props {
   image?: string | StaticImageData;
@@ -7,7 +7,7 @@ interface Props {
 
 const SkeletonMask = ({ image }: Props) => {
   return (
-    <div className="flex flex-1 w-full h-full min-h-[6rem] border border-slate-100 dark:border-slate-900 rounded-[28px] bg-black/[0.2] border-black/[0.2] bg-neutral-300">
+    <div className="flex h-full min-h-[6rem] w-full flex-1 rounded-[28px] border border-black/[0.2] border-slate-100 bg-black/[0.2] bg-neutral-300 dark:border-slate-900">
       {image && (
         <Image
           src={image}
@@ -16,6 +16,7 @@ const SkeletonMask = ({ image }: Props) => {
           height={300}
           objectFit="cover"
           className="rounded-[26px]"
+          priority
         />
       )}
     </div>
