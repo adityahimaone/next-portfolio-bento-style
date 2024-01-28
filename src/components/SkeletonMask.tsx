@@ -17,6 +17,7 @@ const SkeletonMask = ({ image }: Props) => {
           objectFit="cover"
           className="rounded-[26px]"
           priority
+          lazyBoundary="100px"
         />
       )}
     </div>

@@ -69,11 +69,14 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
-                <Link href={`${locale}/repository`}>
+                <Link
+                  href={`${locale}/repository`}
+                  aria-label="repository page"
+                >
                   <motion.div
                     whileHover={{ rotate: 360, transition: { duration: 0.5 } }}
                   >
-                    <Github width={18} height={18} />
+                    <Github width={18} height={18} aria-hidden="true" />
                   </motion.div>
                 </Link>
               </TooltipTrigger>
