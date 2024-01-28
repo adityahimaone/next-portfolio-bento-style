@@ -23,6 +23,7 @@
     "framer-motion": "^10.17.8",
     "install": "^0.13.0",
     "lucide-react": "^0.305.0",
+    "mini-svg-data-uri": "^1.4.4",
     "next": "14.0.4",
     "next-intl": "^3.4.1",
     "npm": "^10.2.5",
