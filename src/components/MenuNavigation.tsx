@@ -10,9 +10,9 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { mochiy_pop_one } from '@/lib/fonts';
 
 interface Props {
   selected?: string;
@@ -28,12 +28,15 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
 
   const [isNavlinkHidden, setIsNavlinkHidden] = useState(false);
 
-  console.log(locale, pathname, urlLink, 'pathname');
-
   return (
     <MaxWidthWrapper className="flex flex-col items-center py-6 sm:flex-row">
       <div className="relative">
-        <h2 className="text-bold mb-2 animate-gradient bg-[linear-gradient(to_right,theme(colors.pallet-blue.1),theme(colors.pallet-blue.2),theme(colors.sky.400),theme(colors.pallet-purple.1),theme(colors.pallet-pink.1),theme(colors.sky.400),theme(colors.pallet-blue.2),theme(colors.pallet-blue.1))] bg-[length:200%_auto] bg-clip-text font-mochi text-2xl text-transparent sm:mb-0">
+        <h2
+          className={cn(
+            'text-bold mb-2 animate-gradient bg-[linear-gradient(to_right,theme(colors.pallet-blue.1),theme(colors.pallet-blue.2),theme(colors.sky.400),theme(colors.pallet-purple.1),theme(colors.pallet-pink.1),theme(colors.sky.400),theme(colors.pallet-blue.2),theme(colors.pallet-blue.1))] bg-[length:200%_auto] bg-clip-text text-2xl text-transparent sm:mb-0',
+            mochiy_pop_one.className,
+          )}
+        >
           adit.
         </h2>
       </div>

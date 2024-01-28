@@ -55,7 +55,6 @@ const Page = () => {
     setSelectedRepos(selected);
   }, [repos]);
 
-  console.log(repos, selectedRepos, 'repos');
   return (
     <>
       <main className="min-h-screen px-6 py-3 sm:px-3 md:px-0">
