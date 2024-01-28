@@ -1,18 +1,12 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
 import './globals.css';
-import { cn } from '@/lib/utils';
 import Theme from '@/components/ThemeProvider';
 import { useLocale, NextIntlClientProvider, useMessages } from 'next-intl';
 import { notFound } from 'next/navigation';
 import PageTransitionEffect from './pageTransitionEffect';
 import Footer from '@/components/Footer';
 import Inner from '@/components/layouts/inner';
-
-const poppins = Poppins({
-  subsets: ['devanagari'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-});
+import { poppins } from '@/lib/fonts';
 
 export const metadata: Metadata = {
   title: 'adit — frontend developer',
