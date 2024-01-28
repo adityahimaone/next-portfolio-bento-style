@@ -4,11 +4,8 @@ import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import MenuNavigation from '@/components/MenuNavigation';
 import React, { ReactNode, useEffect, useState } from 'react';
 import axios from 'axios';
-import { Github, icons } from 'lucide-react';
 import { SiTypescript, SiJavascript, SiSwift, SiGo } from 'react-icons/si';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import Curve from '@/components/layouts/curve';
-import Stairs from '@/components/layouts/stairs';
 import { motion } from 'framer-motion';
 import { HiViewGridAdd } from 'react-icons/hi';
 
@@ -24,6 +21,21 @@ interface IRepoGithub {
 interface ILanguageIcons {
   [key: string]: ReactNode;
 }
+
+const selectedReposList = [
+  'SwiftUI-EmojiFinder',
+  'SwiftUI-StateBinding',
+  'Next-Fake-Nike-Landing-Page',
+  'Framer-Motion',
+  'Next-DigitalMarket',
+  'SwiftUI-Reusable-Layout',
+  'NextJS-Travel-Agency',
+  'FE-Cryptocurrency-LandingPage',
+  'FE-Daily-Calorie-Apps',
+  'FE-Hospital-Management-System',
+  'BE-Daily-Calorie-App-Api',
+  'go-clean-architecture',
+];
 
 const Page = () => {
   const [repos, setRepos] = useState<IRepoGithub[]>();
@@ -71,37 +83,20 @@ const Page = () => {
         'https://api.github.com/users/adityahimaone/repos?sort=created&per_page=100',
       );
       setRepos(response.data);
+
+      const selected = repos?.filter((repo) =>
+        selectedReposList.includes(repo?.name),
+      );
+
+      setSelectedRepos(selected);
     };
 
     fetchRepos();
-  }, []);
-
-  useEffect(() => {
-    const selectedReposList = [
-      'SwiftUI-EmojiFinder',
-      'SwiftUI-StateBinding',
-      'Next-Fake-Nike-Landing-Page',
-      'Framer-Motion',
-      'Next-DigitalMarket',
-      'SwiftUI-Reusable-Layout',
-      'NextJS-Travel-Agency',
-      'FE-Cryptocurrency-LandingPage',
-      'FE-Daily-Calorie-Apps',
-      'FE-Hospital-Management-System',
-      'BE-Daily-Calorie-App-Api',
-      'go-clean-architecture',
-    ];
-
-    const selected = repos?.filter((repo) =>
-      selectedReposList.includes(repo?.name),
-    );
-
-    setSelectedRepos(selected);
   }, [repos]);
 
   console.log(repos, selectedRepos, 'repos');
   return (
-    <Curve>
+    <>
       <main className="min-h-screen px-6 py-3 sm:px-3 md:px-0">
         <MenuNavigation />
         <MaxWidthWrapper>
@@ -204,7 +199,7 @@ const Page = () => {
           </div>
         </MaxWidthWrapper>
       </main>
-    </Curve>
+    </>
   );
 };
 

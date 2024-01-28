@@ -7,6 +7,7 @@ import { useLocale, NextIntlClientProvider, useMessages } from 'next-intl';
 import { notFound } from 'next/navigation';
 import PageTransitionEffect from './pageTransitionEffect';
 import Footer from '@/components/Footer';
+import Inner from '@/components/layouts/inner';
 
 const poppins = Poppins({
   subsets: ['devanagari'],
@@ -80,10 +81,10 @@ export default function RootLayout({
         <body className={poppins.className}>
           <PageTransitionEffect>
             <Theme>
-              <div className={cn('bg-background-2 dark:bg-background')}>
-                {children}
-              </div>
-              <Footer />
+              <Inner>
+                <div className={cn('bg-background-2')}>{children}</div>
+                <Footer />
+              </Inner>
             </Theme>
           </PageTransitionEffect>
         </body>
