@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MaxWidthWrapper from './MaxWidthWrapper';
 import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
@@ -25,6 +25,9 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
   const locale = useLocale();
   const pathname = usePathname();
   const urlLink = pathname.split('/')[2];
+
+  const [isNavlinkHidden, setIsNavlinkHidden] = useState(false);
+
   console.log(locale, pathname, urlLink, 'pathname');
 
   return (
@@ -35,16 +38,17 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
         </h2>
       </div>
       <nav className="mx-auto flex w-fit flex-wrap gap-2 rounded-full bg-slate-200 p-1.5 dark:border dark:border-white/[0.2] dark:bg-card">
-        {options?.map((option) => (
-          <Chip
-            text={t(option)}
-            option={option}
-            selected={selected === option}
-            setSelected={handleChange}
-            key={option}
-          />
-        ))}
-        {urlLink === 'repository' && (
+        {!isNavlinkHidden &&
+          options?.map((option) => (
+            <Chip
+              text={t(option)}
+              option={option}
+              selected={selected === option}
+              setSelected={handleChange}
+              key={option}
+            />
+          ))}
+        {urlLink === 'repository' && !isNavlinkHidden && (
           <div className="relative flex items-center rounded-md px-2 py-1 text-sm text-gray-500 transition-colors hover:bg-slate-700 hover:text-slate-200 sm:px-3.5 sm:py-0.5">
             <Link href={'/'}>
               <span className="relative z-10 ">Home</span>
@@ -55,6 +59,9 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
           whileHover={{
             scale: 1.1,
             transition: { duration: 0.5 },
+          }}
+          onClick={() => {
+            setIsNavlinkHidden(!isNavlinkHidden);
           }}
           className={cn(
             'flex items-center justify-center rounded-full  p-2 shadow-md',
