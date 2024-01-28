@@ -14,8 +14,6 @@ import TechStack from '@/components/TechStack';
 import SkeletonMask from '@/components/SkeletonMask';
 import { options, projectsData } from '@/lib/data';
 import { useTranslations } from 'next-intl';
-import Curve from '@/components/layouts/curve';
-import Stairs from '@/components/layouts/stairs';
 
 interface Props {
   params: {
@@ -144,7 +142,7 @@ const Page = ({ params: { locale } }: Props) => {
   };
 
   return (
-    <Curve>
+    <>
       <main className="px-6 py-3 sm:px-3 md:px-0">
         <MenuNavigation
           selected={selected}
@@ -169,7 +167,7 @@ const Page = ({ params: { locale } }: Props) => {
           ))}
         </BentoGrid>
       </main>
-    </Curve>
+    </>
   );
 };
 

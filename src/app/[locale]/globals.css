@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Roboto:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Roboto:wght@500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -37,11 +37,13 @@
     --pallet-purple-3: 263, 87%, 35%;
     --pallet-pink-1: 309, 77%, 40%;
     --pallet-pink-2: 333, 93%, 56%;
+    --background-dark: 222.2 84% 4.9%;
+    --background-dark-2: 210, 28%, 7%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --background-2: 210, 28%, 7%;
+    --background: 210, 28%, 7%;
+    --background-2: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -89,12 +91,12 @@
 }
 
 .drag-ghost {
-  @apply opacity-30 bg-slate-100 dark:border-none dark:bg-slate-100;
+  @apply bg-slate-100 opacity-30 dark:border-none dark:bg-slate-100;
   div {
     @apply opacity-0;
   }
 }
 
 .drag-chosen {
-  @apply shadow-none shadow-transparent opacity-50;
+  @apply opacity-50 shadow-none shadow-transparent;
 }
