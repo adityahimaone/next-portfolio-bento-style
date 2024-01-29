@@ -11,3 +11,4 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - React Drag and Drop (react-sortablejs)
 - Internationalization (next-intl)
 - Dark Mode (next-themes)
+- Husky (pre-commit)

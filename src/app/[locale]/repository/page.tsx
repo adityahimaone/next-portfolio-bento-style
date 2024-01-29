@@ -2,11 +2,11 @@
 
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import MenuNavigation from '@/components/MenuNavigation';
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { SiTypescript, SiJavascript, SiSwift, SiGo } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import { HoverEffect } from '@/components/ui/card-hover-effect';
+import { selectedReposList } from '@/lib/data';
 
 interface IRepoGithub {
   id: number;
@@ -17,31 +17,29 @@ interface IRepoGithub {
   html_url: string;
 }
 
-const selectedReposList = [
-  'SwiftUI-EmojiFinder',
-  'SwiftUI-StateBinding',
-  'Next-Fake-Nike-Landing-Page',
-  'Framer-Motion',
-  'Next-DigitalMarket',
-  'SwiftUI-Reusable-Layout',
-  'NextJS-Travel-Agency',
-  'FE-Cryptocurrency-LandingPage',
-  'FE-Daily-Calorie-Apps',
-  'FE-Hospital-Management-System',
-  'BE-Daily-Calorie-App-Api',
-  'go-clean-architecture',
-];
-
 const Page = () => {
+  const [isFetch, setIsFetch] = useState<boolean>(false);
   const [repos, setRepos] = useState<IRepoGithub[]>();
   const [selectedRepos, setSelectedRepos] = useState<IRepoGithub[]>();
 
   useEffect(() => {
     const fetchRepos = async () => {
-      const response = await axios.get(
-        'https://api.github.com/users/adityahimaone/repos?sort=created&per_page=100',
-      );
-      setRepos(response.data);
+      setIsFetch(true);
+      const response = await axios
+        .get(
+          'https://api.github.com/users/adityahimaone/repos?sort=created&per_page=100',
+        )
+        .then((res) => {
+          return res.data as IRepoGithub[];
+        })
+        .catch((err) => console.log(err))
+        .finally(() => {
+          setIsFetch(false);
+        });
+
+      if (response) {
+        setRepos(response as IRepoGithub[]);
+      }
     };
 
     fetchRepos();
@@ -73,7 +71,7 @@ const Page = () => {
             >
               Repository
             </motion.h1>
-            <HoverEffect items={selectedRepos} />
+            <HoverEffect isFetch={isFetch} items={selectedRepos} />
           </div>
         </MaxWidthWrapper>
       </main>

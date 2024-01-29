@@ -10,7 +10,9 @@
   "navigation": {
     "all": "all",
     "about": "about",
-    "projects": "projects"
+    "projects": "projects",
+    "home": "home",
+    "repository_selected": "repository selected"
   },
   "experience": [
     {

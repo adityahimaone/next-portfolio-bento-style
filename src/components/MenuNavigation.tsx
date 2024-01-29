@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { mochiy_pop_one } from '@/lib/fonts';
+import { url } from 'inspector';
 
 interface Props {
   selected?: string;
@@ -25,6 +26,7 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
   const locale = useLocale();
   const pathname = usePathname();
   const urlLink = pathname.split('/')[2];
+  console.log(locale, urlLink);
 
   const [isNavlinkHidden, setIsNavlinkHidden] = useState(false);
 
@@ -53,8 +55,8 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
           ))}
         {urlLink === 'repository' && !isNavlinkHidden && (
           <div className="relative flex items-center rounded-md px-2 py-1 text-sm text-gray-500 transition-colors hover:bg-slate-700 hover:text-slate-200 sm:px-3.5 sm:py-0.5">
-            <Link href={'/'}>
-              <span className="relative z-10 ">Home</span>
+            <Link href={`/${locale}`} locale={locale}>
+              <span className="relative z-10 ">{t('home')}</span>
             </Link>
           </div>
         )}
@@ -63,25 +65,30 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
             scale: 1.1,
             transition: { duration: 0.5 },
           }}
-          onClick={() => {
-            setIsNavlinkHidden(!isNavlinkHidden);
-          }}
           className={cn(
-            'flex items-center justify-center rounded-full  p-2 shadow-md',
-            {
-              'bg-slate-50 hover:bg-slate-700 hover:text-slate-200 dark:bg-slate-800':
-                urlLink === 'repository',
-              'bg-slate-200 hover:bg-slate-700 hover:text-slate-200 dark:bg-slate-800':
-                urlLink !== 'repository',
-            },
+            'flex animate-gradient items-center justify-center rounded-full bg-[linear-gradient(to_right,theme(colors.slate.300),theme(colors.slate.300),theme(colors.slate.500),theme(colors.slate.700),theme(colors.slate.800),theme(colors.slate.500),theme(colors.slate.200),theme(colors.slate.300))] bg-[length:200%_auto] p-2 shadow-lg',
+            // {
+            //   'bg-slate-50 hover:bg-slate-700 hover:text-slate-200 dark:bg-slate-800':
+            //     urlLink === 'repository',
+            //   'bg-slate-200 hover:bg-slate-700 hover:text-slate-200 dark:bg-slate-800':
+            //     urlLink !== 'repository',
+            // },
           )}
         >
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
                 <Link
-                  href={`${locale}/repository`}
+                  href={`/${locale}/repository`}
                   aria-label="repository page"
+                  locale={locale}
+                  onClick={(event) => {
+                    if (urlLink === 'repository') {
+                      event.preventDefault();
+                    } else {
+                      setIsNavlinkHidden(!isNavlinkHidden);
+                    }
+                  }}
                 >
                   <motion.div
                     whileHover={{ rotate: 360, transition: { duration: 0.5 } }}
@@ -91,7 +98,7 @@ const MenuNavigation = ({ selected, options, handleChange }: Props) => {
                 </Link>
               </TooltipTrigger>
               <TooltipContent>
-                <p>Repository Selected</p>
+                <p>{t('repository_selected')}</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
