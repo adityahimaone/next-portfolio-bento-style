@@ -10,7 +10,9 @@
   "navigation": {
     "all": "semua",
     "about": "tentang",
-    "projects": "proyek"
+    "projects": "proyek",
+    "home": "beranda",
+    "repository_selected": "repository terpilih"
   },
   "experience": [
     {

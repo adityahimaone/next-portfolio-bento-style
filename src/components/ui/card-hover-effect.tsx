@@ -5,6 +5,7 @@ import { ReactNode, useState } from 'react';
 import { SiTypescript, SiJavascript, SiSwift, SiGo } from 'react-icons/si';
 import { HiViewGridAdd } from 'react-icons/hi';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface IRepoGithub {
   id: number;
@@ -39,9 +40,11 @@ const stagger = {
 
 export const HoverEffect = ({
   items,
+  isFetch,
   className,
 }: {
   items: IRepoGithub[] | undefined;
+  isFetch: boolean;
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -56,6 +59,28 @@ export const HoverEffect = ({
         className,
       )}
     >
+      {isFetch &&
+        Array.from({ length: 12 }).map((_, idx) => (
+          <motion.div
+            variants={{
+              initial: { opacity: 0, y: 20 },
+              animate: { opacity: 1, y: 0 },
+            }}
+            key={idx}
+            className="p-2"
+          >
+            <Card>
+              <div className="flex flex-col">
+                <div className="flex flex-row space-x-2">
+                  <Skeleton className="h-[40px] w-[50px] rounded-sm" />
+                  <Skeleton className="h-[40px] w-full rounded-sm" />
+                </div>
+                <Skeleton className="mt-3 h-[40px] w-full rounded-sm" />
+                <Skeleton className="mt-3 h-[80px] w-full rounded-sm" />
+              </div>
+            </Card>
+          </motion.div>
+        ))}
       {items?.map((item, idx) => (
         <motion.div
           variants={{
@@ -66,7 +91,7 @@ export const HoverEffect = ({
         >
           <Link
             href={item?.html_url}
-            className="group relative  block h-full w-full p-2"
+            className="group relative block h-full w-full p-2"
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
             target="_blank"

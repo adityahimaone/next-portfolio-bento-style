@@ -9,7 +9,9 @@ const LinkMemojiResume = () => {
   const controls = useAnimation();
   const controlsIcon = useAnimation();
 
-  const [memoji, setMemoji] = useState('/memoji-2.png');
+  const [memoji, setMemoji] = useState(
+    'https://ucarecdn.com/6175b76e-373d-4507-b3ed-9cd7eb5f5912/memoji2.png',
+  );
 
   const hoverAnimation = {
     scale: 1.1,
@@ -37,7 +39,9 @@ const LinkMemojiResume = () => {
             display: 'block',
             transition: { duration: 0.5 },
           });
-          setMemoji('/memoji-3.png');
+          setMemoji(
+            'https://ucarecdn.com/5150d257-f693-430f-ac35-17c837b191f0/memoji3.png',
+          );
         }}
         onTouchEnd={() => {
           controls.start(unhoverAnimation);
@@ -46,7 +50,9 @@ const LinkMemojiResume = () => {
             display: 'none',
             transition: { duration: 0.5 },
           });
-          setMemoji('/memoji-2.png');
+          setMemoji(
+            'https://ucarecdn.com/6175b76e-373d-4507-b3ed-9cd7eb5f5912/memoji2.png',
+          );
         }}
         onHoverStart={() => {
           controls.start(hoverAnimation);
@@ -55,7 +61,9 @@ const LinkMemojiResume = () => {
             display: 'block',
             transition: { duration: 0.5 },
           });
-          setMemoji('/memoji-3.png');
+          setMemoji(
+            'https://ucarecdn.com/5150d257-f693-430f-ac35-17c837b191f0/memoji3.png',
+          );
         }}
         onHoverEnd={() => {
           controls.start(unhoverAnimation);
@@ -64,7 +72,9 @@ const LinkMemojiResume = () => {
             display: 'none',
             transition: { duration: 0.5 },
           });
-          setMemoji('/memoji-2.png');
+          setMemoji(
+            'https://ucarecdn.com/6175b76e-373d-4507-b3ed-9cd7eb5f5912/memoji2.png',
+          );
         }}
         className="group relative inline-flex h-8 cursor-pointer overflow-hidden rounded-full border border-slate-200 px-[2px] py-1.5 focus:outline-none"
       >

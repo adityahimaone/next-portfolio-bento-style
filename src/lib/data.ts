@@ -79,3 +79,18 @@ export const projectsData: IProjectData[] = [
     url: 'https://github.com/adityahimaone/Daily-Calorie-Apps',
   },
 ];
+
+export const selectedReposList: String[] = [
+  'SwiftUI-EmojiFinder',
+  'SwiftUI-StateBinding',
+  'Next-Fake-Nike-Landing-Page',
+  'Framer-Motion',
+  'Next-DigitalMarket',
+  'SwiftUI-Reusable-Layout',
+  'NextJS-Travel-Agency',
+  'FE-Cryptocurrency-LandingPage',
+  'FE-Daily-Calorie-Apps',
+  'FE-Hospital-Management-System',
+  'BE-Daily-Calorie-App-Api',
+  'go-clean-architecture',
+];
