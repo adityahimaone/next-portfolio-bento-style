@@ -1,9 +1,10 @@
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
 
 export interface IExperienceData {
   id: number;
   title: string;
   subtitle: string;
+  work_schema?: string;
   desc: string;
   time: string;
 }

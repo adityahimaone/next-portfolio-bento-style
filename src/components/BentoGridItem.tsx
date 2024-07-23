@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { IBentoGridItem } from "@/lib/types";
-import { cn } from "@/lib/utils";
-import { motion, stagger, useAnimate } from "framer-motion";
+import { IBentoGridItem } from '@/lib/types';
+import { cn } from '@/lib/utils';
+import { motion, stagger, useAnimate } from 'framer-motion';
 
 const BentoGridItem = ({
   className,
@@ -23,16 +23,16 @@ const BentoGridItem = ({
           : { opacity: 0.3, y: 0, scale: 1 }
       }
       className={cn(
-        "group-draggable row-span-1 rounded-[32px] overflow-hidden group/bento hover:shadow-xl transition-all ease-in-out duration-200 shadow-input dark:shadow-none dark:bg-card dark:border-white/[0.5] bg-white border border-transparent justify-between flex flex-col space-y-4 cursor-grab",
-        className
+        'group-draggable group/bento row-span-1 flex cursor-grab flex-col justify-between space-y-4 overflow-hidden rounded-[32px] border border-transparent bg-white shadow-input drop-shadow-sm transition-all duration-200 ease-in-out hover:shadow-xl dark:border-white/[0.5] dark:bg-card dark:shadow-none',
+        className,
       )}
     >
       {header}
       {icon || title || description ? (
-        <div className="group-hover/bento:translate-x-2 transition duration-200">
+        <div className="transition duration-200 group-hover/bento:translate-x-2">
           {icon}
           {title && (
-            <div className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200">
+            <div className="mb-2 mt-2 font-sans font-bold text-neutral-600 dark:text-neutral-200">
               {title}
             </div>
           )}
