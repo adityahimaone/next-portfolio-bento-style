@@ -16,23 +16,27 @@
   },
   "experience": [
     {
-      "desc": "Ditugaskan untuk pengembangan dan pemeliharaan Sistem Informasi Sumber Daya Manusia (HRIS) dan aplikasi absensi, termasuk perbaikan fitur utama, redesain, pemecahan masalah, dan penyelesaian bug. Selain itu, bertanggung jawab untuk meningkatkan fitur aplikasi otomatisasi Indeks Kinerja Kunci (KPI) (Tumpukan terakhir menggunakan JQuery & PHP)",
+      "desc": "Memimpin pengembangan Sistem Manajemen Sumber Daya Manusia generasi berikutnya dengan mengintegrasikan teknologi blockchain untuk memastikan keamanan data yang ditingkatkan dan desentralisasi. Juga bertanggung jawab atas pemeliharaan aplikasi, mengatasi bug kritis untuk meningkatkan keandalan sistem dan pengalaman pengguna.",
+      "time": "Jun 2024 - Sep 2024"
+    },
+    {
+      "desc": "Memimpin pengembangan dan pemeliharaan berkelanjutan Sistem Informasi Sumber Daya Manusia (HRIS) dan aplikasi kehadiran, secara signifikan meningkatkan kegunaan fitur dan keandalan sistem. Pencapaian utama termasuk otomatisasi Indikator Kinerja Kunci (KPI), yang meningkatkan efektivitas penilaian kinerja.",
       "time": "Okt 2022 - Sekarang"
     },
     {
-      "desc": "Bertanggung jawab untuk memelihara dan meningkatkan fungsionalitas situs web yang ada, membuat profil perusahaan yang menarik, dan mengembangkan platform e-commerce. Sebagai pengembang frontend, peran ini melibatkan memastikan operasi lancar situs web saat ini, mengoptimalkan kinerjanya, dan mengimplementasikan pembaruan. (Tumpukan terakhir menggunakan ReactJS & NextJS)",
+      "desc": "Berperan penting dalam pemeliharaan dan peningkatan situs web yang ada, menciptakan profil perusahaan yang menarik, dan mengembangkan platform e-commerce. Ini melibatkan mengoptimalkan kinerja situs web dan menerapkan pembaruan untuk meningkatkan keterlibatan pengguna dan konversi penjualan.",
       "time": "Jun 2022 - Agu 2022"
     },
     {
-      "desc": "Menjelajahi pengembangan frontend dengan tumpukan teknologi NodeJS, EJS, ReactJS, dan NextJS. Fokusnya adalah proyek capstone, aplikasi frontend untuk pemesanan mobil. Tujuannya adalah untuk mendapatkan pengalaman langsung dalam membangun antarmuka pemesanan mobil yang ramah pengguna sambil menguasai kerumitan teknologi frontend ini.",
+      "desc": "Berfokus pada pengembangan aplikasi frontend untuk pemesanan mobil menggunakan tumpukan modern termasuk NodeJS, EJS, ReactJS, dan NextJS. Proyek ini bertujuan untuk menyediakan antarmuka yang ramah pengguna untuk pemesanan kendaraan, meningkatkan aksesibilitas layanan bagi pengguna.",
       "time": "Feb 2022 - Jul 2022"
     },
     {
-      "desc": "Membangun proyek capstone, Calories Tracker & Hospital Management System, dengan backend Golang sebagai RESTful API dan frontend ReactJS. Backend yang didukung oleh Golang memastikan efisiensi, sementara frontend ReactJS menyediakan antarmuka yang ramah pengguna untuk melacak kalori dan mengelola informasi terkait rumah sakit.",
+      "desc": "Mengembangkan sistem Calories Tracker & Hospital Management yang komprehensif, menggunakan backend Golang untuk penanganan data yang efisien dan frontend ReactJS untuk pengalaman pengguna yang mulus. Proyek ini mendukung manajemen rumah sakit dan fungsionalitas pelacakan kesehatan.",
       "time": "Agu 2021 - Jan 2022"
     },
     {
-      "desc": "Saya bekerja sama dengan tim untuk membuat proyek capstone, aplikasi machine learning intuitif yang mampu menghitung kalori dengan akurat pada foto makanan. Berfungsi sebagai API terintegrasi dengan Firebase dan diterapkan di Google Cloud dengan Cloud Balancing, proyek kami dengan mulus menggabungkan kecakapan machine learning dengan solusi berbasis cloud yang efisien.",
+      "desc": "Berkolaborasi dalam proyek capstone untuk mengembangkan aplikasi machine learning yang memperkirakan kalori dari gambar makanan. Terintegrasi dengan Firebase dan diterapkan di Google Cloud, proyek ini menggunakan cloud balancing untuk mengoptimalkan penggunaan sumber daya dan meningkatkan kinerja aplikasi.",
       "time": "Feb 2021 - Jul 2021"
     }
   ],
