@@ -47,7 +47,7 @@ export const experienceData: IExperienceData[] = [
     subtitle: 'Frontend Developer',
     work_schema: 'Part Time',
     desc: 'Spearheaded the development of a next-generation Human Resources Management System incorporating blockchain technology to ensure enhanced data security and decentralization. Also responsible for maintaining the application, resolving critical bugs to improve system reliability and user experience.',
-    time: 'Jun 2022 - Present',
+    time: 'Apr 2022 - Present',
   },
 ];
 
