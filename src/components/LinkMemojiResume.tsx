@@ -30,7 +30,7 @@ const LinkMemojiResume = () => {
       <motion.a
         target={'_blank'}
         href={
-          'https://drive.google.com/file/d/1h6wL2nuDpomEgs1Dg_dyrKgeEcM3ksYt/view?usp=sharing'
+          'https://drive.google.com/file/d/19UZckHIwgl-6nRHTgci-Iw3JiEuZnlbq/view?usp=sharing'
         }
         onTouchStart={() => {
           controls.start(hoverAnimation);
